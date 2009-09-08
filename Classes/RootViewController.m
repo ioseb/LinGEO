@@ -2,9 +2,6 @@
 //  RootViewController.m
 //  LinGO
 //
-//  Created by Mr.Woods on 8/2/08.
-//  Copyright __MyCompanyName__ 2008. All rights reserved.
-//
 
 #import "RootViewController.h"
 #import "LinGOAppDelegate.h"
