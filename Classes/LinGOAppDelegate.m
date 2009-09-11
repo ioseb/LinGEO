@@ -51,6 +51,7 @@ static MapTable *map = nil;
     if (success) return;
     // The writable database does not exist, so copy the default to the appropriate location.
     NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ilingoka.sqlite"];
+    success = [fileManager removeItemAtPath:writableDBPath error:&error];
     success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
 }
 
@@ -126,7 +127,7 @@ static MapTable *map = nil;
 	
 	if ([word length] == 0) return;
 	
-	const char *sql = "SELECT DISTINCT t1.id, t1.eng, t1.transcription, t2.geo, t4.name, t4.abbr FROM eng t1, geo t2, geo_eng t3, types t4 WHERE t1.eng LIKE ? AND t3.eng_id=t1.id AND t2.id=t3.geo_id AND t4.id=t2.type ORDER BY t1.eng LIMIT 30";
+	const char *sql = "SELECT t1.id, t1.eng, t1.transcription, t2.geo, t4.name, t4.abbr FROM eng t1, geo t2, geo_eng t3, types t4 WHERE t1.eng LIKE ? AND t3.eng_id=t1.id AND t2.id=t3.geo_id AND t4.id=t2.type ORDER BY t1.eng LIMIT 20";
 	sqlite3_stmt *statement;
 	
 	if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) == SQLITE_OK) {
@@ -136,9 +137,9 @@ static MapTable *map = nil;
 		[bindValue appendString:@"%"];
 		
 		sqlite3_bind_text(statement, 1, [(NSString *)bindValue UTF8String], -1, SQLITE_TRANSIENT);
-		
+
 		while (sqlite3_step(statement) == SQLITE_ROW) {
-			
+
 			NSString *eng = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 1)];
 			NSString *geo = [LinGOAppDelegate convertToKA:[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 3)]];
 			EngGeo *prev = nil;
@@ -160,6 +161,7 @@ static MapTable *map = nil;
 			}
 			
 		}
+        
 		
 	} else {
 		//NSLog(@"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(database));
