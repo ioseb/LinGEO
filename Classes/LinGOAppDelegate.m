@@ -8,7 +8,6 @@
 #import "BookmarkViewController.h"
 #import "EngGeo.h"
 #import "Bookmark.h"
-#import "MapTable.h";
 
 static NSDictionary *map = nil;
 

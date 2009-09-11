@@ -7,15 +7,15 @@
 #import "BookmarkViewController.h"
 #import "BookmarkDetailViewController.h"
 #import "Bookmark.h"
-#import "MapTable.h"
+
 
 @interface SortedBookmarks : NSObject {
 	NSMutableArray *keys;
-	MapTable *mappings;
+	NSMutableDictionary *mappings;
 }
 
 @property (nonatomic, retain) NSMutableArray *keys;
-@property (nonatomic, retain) MapTable *mappings;
+@property (nonatomic, retain) NSMutableDictionary *mappings;
 
 - (id)initWithBookmarks:(NSMutableArray *)bookmarks;
 - (int)numberOfRowsInSection:(int)section;
@@ -33,7 +33,7 @@
 	[super init];
 	
 	keys = [[NSMutableArray alloc] init];
-	mappings = [[MapTable alloc] init];
+	mappings = [[NSMutableDictionary alloc] init];
 	
 	int i;
 	
