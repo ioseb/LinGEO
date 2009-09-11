@@ -16,7 +16,6 @@
 		13B84F150E45C81E0058FDC2 /* BookmarkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B84F140E45C81E0058FDC2 /* BookmarkDetailViewController.m */; };
 		13B84F770E45CCFE0058FDC2 /* BookmarkDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B84F760E45CCFE0058FDC2 /* BookmarkDetailView.xib */; };
 		13B850510E461FA80058FDC2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B850500E461FA80058FDC2 /* libsqlite3.dylib */; };
-		13F1FBDC0E4A5BF2001E4DE5 /* MapTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F1FBDB0E4A5BF2001E4DE5 /* MapTable.m */; };
 		13FB7BC40E44DB560081C08E /* EngGeo.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FB7BC30E44DB560081C08E /* EngGeo.m */; };
 		1D3623260D0F684500981E51 /* LinGOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* LinGOAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -42,8 +41,6 @@
 		13B84F140E45C81E0058FDC2 /* BookmarkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkDetailViewController.m; sourceTree = "<group>"; };
 		13B84F760E45CCFE0058FDC2 /* BookmarkDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkDetailView.xib; sourceTree = "<group>"; };
 		13B850500E461FA80058FDC2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		13F1FBDA0E4A5BF2001E4DE5 /* MapTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTable.h; sourceTree = "<group>"; };
-		13F1FBDB0E4A5BF2001E4DE5 /* MapTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTable.m; sourceTree = "<group>"; };
 		13FB7BC20E44DB560081C08E /* EngGeo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EngGeo.h; path = Classes/EngGeo.h; sourceTree = "<group>"; };
 		13FB7BC30E44DB560081C08E /* EngGeo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EngGeo.m; path = Classes/EngGeo.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,8 +97,6 @@
 				13FB7BC30E44DB560081C08E /* EngGeo.m */,
 				1311061E0E46676500ADB761 /* Bookmark.h */,
 				1311061F0E46676500ADB761 /* Bookmark.m */,
-				13F1FBDA0E4A5BF2001E4DE5 /* MapTable.h */,
-				13F1FBDB0E4A5BF2001E4DE5 /* MapTable.m */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -234,7 +229,6 @@
 				139F57BB0E450A23009EA047 /* BookmarkViewController.m in Sources */,
 				13B84F150E45C81E0058FDC2 /* BookmarkDetailViewController.m in Sources */,
 				131106200E46676500ADB761 /* Bookmark.m in Sources */,
-				13F1FBDC0E4A5BF2001E4DE5 /* MapTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

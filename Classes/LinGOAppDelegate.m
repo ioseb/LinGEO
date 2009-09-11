@@ -10,7 +10,7 @@
 #import "Bookmark.h"
 #import "MapTable.h";
 
-static MapTable *map = nil;
+static NSDictionary *map = nil;
 
 @interface LinGOAppDelegate()
 - (void) createEditableCopyOfDatabaseIfNeeded;
@@ -62,44 +62,15 @@ static MapTable *map = nil;
 }
 
 + (NSString *)convertToKA:(NSString *)str {
-	
-	if (map == nil) {
-		map = [[MapTable alloc] init];
-		[map setObject:@"ა" forKey:@"a"];
-		[map setObject:@"ბ" forKey:@"b"];
-		[map setObject:@"გ" forKey:@"g"];
-		[map setObject:@"დ" forKey:@"d"];
-		[map setObject:@"ე" forKey:@"e"];
-		[map setObject:@"ვ" forKey:@"v"];
-		[map setObject:@"ზ" forKey:@"z"];
-		[map setObject:@"თ" forKey:@"T"];
-		[map setObject:@"ი" forKey:@"i"];
-		[map setObject:@"კ" forKey:@"k"];
-		[map setObject:@"ლ" forKey:@"l"];
-		[map setObject:@"მ" forKey:@"m"];
-		[map setObject:@"ნ" forKey:@"n"];
-		[map setObject:@"ო" forKey:@"o"];
-		[map setObject:@"პ" forKey:@"p"];
-		[map setObject:@"ჟ" forKey:@"J"];
-		[map setObject:@"რ" forKey:@"r"];
-		[map setObject:@"ს" forKey:@"s"];
-		[map setObject:@"ტ" forKey:@"t"];
-		[map setObject:@"უ" forKey:@"u"];
-		[map setObject:@"ფ" forKey:@"f"];
-		[map setObject:@"ქ" forKey:@"q"];
-		[map setObject:@"ღ" forKey:@"R"];
-		[map setObject:@"ყ" forKey:@"y"];
-		[map setObject:@"შ" forKey:@"S"];
-		[map setObject:@"ჩ" forKey:@"C"];
-		[map setObject:@"ც" forKey:@"c"];
-		[map setObject:@"ძ" forKey:@"Z"];
-		[map setObject:@"წ" forKey:@"w"];
-		[map setObject:@"ჭ" forKey:@"W"];
-		[map setObject:@"ხ" forKey:@"x"];
-		[map setObject:@"ჯ" forKey:@"j"];
-		[map setObject:@"ჰ" forKey:@"h"];
-		[map setObject:@"ჩ" forKey:@"G"];
-	}
+    
+    if(map == nil) {
+        map = [[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"ა", @"ბ", @"გ", @"დ", @"ე", @"ვ", @"ზ", @"თ", @"ი", @"კ", @"ლ", @"მ",
+                                                                            @"ნ", @"ო", @"პ", @"ჟ", @"რ", @"ს", @"ტ", @"უ", @"ფ", @"ქ", @"ღ", @"ყ", 
+                                                                            @"შ", @"ჩ", @"ც", @"ძ", @"წ", @"ჭ", @"ხ", @"ჯ", @"ჰ", @"ჩ", nil] 
+                                          forKeys:[NSArray arrayWithObjects:@"a", @"b", @"g", @"d", @"e", @"v", @"z", @"T", @"i", @"k", @"l", @"m", 
+                                                                            @"n", @"o", @"p", @"J", @"r", @"s", @"t", @"u", @"f", @"q", @"R", @"y", 
+                                                                            @"S", @"C", @"c", @"Z", @"w", @"W", @"x", @"j", @"h", @"G", nil] ] retain];
+    }
 	
 	NSMutableString *ret = [[[NSMutableString alloc] init] autorelease];
 	int i;	
@@ -118,7 +89,6 @@ static MapTable *map = nil;
 	}
 	
 	return ret;
-	
 }
 
 - (void)search:(NSString *)word {
