@@ -31,32 +31,31 @@ static NSDictionary *map = nil;
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-	[self createEditableCopyOfDatabaseIfNeeded];
+	
+    [self openDatabase];
+    
 	[self loadAllBookmarks];
-	[window addSubview:[navigationController view]];
+	
+    [window addSubview:[navigationController view]];
 	[window makeKeyAndVisible];
 }
 
-// Creates a writable copy of the bundled default database in the application Documents directory.
-- (void)createEditableCopyOfDatabaseIfNeeded {
-    // First, test for existence.
-    BOOL success;
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:@"ilingoka.sqlite"];
-    success = [fileManager fileExistsAtPath:writableDBPath];
-    if (success) return;
-    // The writable database does not exist, so copy the default to the appropriate location.
-    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ilingoka.sqlite"];
-    success = [fileManager removeItemAtPath:writableDBPath error:&error];
-    success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
+// Open readonly database from main Bundle
+- (void)openDatabase
+{
+    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ilingoka.sqlite"];    
+    if (sqlite3_open([defaultDBPath UTF8String], &database ) != SQLITE_OK) {
+		NSLog(@"Error: failed to open database with message '%s'.", sqlite3_errmsg(database));
+	}
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	if (sqlite3_close(database) != SQLITE_OK) {
         NSAssert1(0, @"Error: failed to close database with message '%s'.", sqlite3_errmsg(database));
+    }
+    
+    if (sqlite3_close(databaseBookmark) != SQLITE_OK) {
+        NSAssert1(0, @"Error: failed to close database with message '%s'.", sqlite3_errmsg(databaseBookmark));
     }
 }
 
@@ -64,11 +63,11 @@ static NSDictionary *map = nil;
     
     if(map == nil) {
         map = [[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"ა", @"ბ", @"გ", @"დ", @"ე", @"ვ", @"ზ", @"თ", @"ი", @"კ", @"ლ", @"მ",
-                                                                            @"ნ", @"ო", @"პ", @"ჟ", @"რ", @"ს", @"ტ", @"უ", @"ფ", @"ქ", @"ღ", @"ყ", 
-                                                                            @"შ", @"ჩ", @"ც", @"ძ", @"წ", @"ჭ", @"ხ", @"ჯ", @"ჰ", @"ჩ", nil] 
-                                          forKeys:[NSArray arrayWithObjects:@"a", @"b", @"g", @"d", @"e", @"v", @"z", @"T", @"i", @"k", @"l", @"m", 
-                                                                            @"n", @"o", @"p", @"J", @"r", @"s", @"t", @"u", @"f", @"q", @"R", @"y", 
-                                                                            @"S", @"C", @"c", @"Z", @"w", @"W", @"x", @"j", @"h", @"G", nil] ] retain];
+                                                                             @"ნ", @"ო", @"პ", @"ჟ", @"რ", @"ს", @"ტ", @"უ", @"ფ", @"ქ", @"ღ", @"ყ", 
+                                                                             @"შ", @"ჩ", @"ც", @"ძ", @"წ", @"ჭ", @"ხ", @"ჯ", @"ჰ", @"ჩ", nil] 
+                                           forKeys:[NSArray arrayWithObjects:@"a", @"b", @"g", @"d", @"e", @"v", @"z", @"T", @"i", @"k", @"l", @"m", 
+                                                                             @"n", @"o", @"p", @"J", @"r", @"s", @"t", @"u", @"f", @"q", @"R", @"y", 
+                                                                             @"S", @"C", @"c", @"Z", @"w", @"W", @"x", @"j", @"h", @"G", nil] ] retain];
     }
 	
 	NSMutableString *ret = [[[NSMutableString alloc] init] autorelease];
@@ -96,14 +95,14 @@ static NSDictionary *map = nil;
 	
 	if ([word length] == 0) return;
 	
-	const char *sql = "SELECT t1.id, t1.eng, t1.transcription, t2.geo, t4.name, t4.abbr FROM eng t1, geo t2, geo_eng t3, types t4 WHERE t1.eng LIKE ? AND t3.eng_id=t1.id AND t2.id=t3.geo_id AND t4.id=t2.type ORDER BY t1.eng LIMIT 20";
+	const char *sql = "SELECT t1.id, t1.eng, t1.transcription, t2.geo, t4.name, t4.abbr FROM eng t1, geo t2, geo_eng t3, types t4 WHERE t1.eng >= ? AND t3.eng_id=t1.id AND t2.id=t3.geo_id AND t4.id=t2.type ORDER BY t1.eng LIMIT 20";
 	sqlite3_stmt *statement;
 	
 	if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) == SQLITE_OK) {
 		
 		//NSMutableString *bindValue = [[NSMutableString alloc] initWithString:word];
 		NSMutableString *bindValue = [NSMutableString stringWithString:word];
-		[bindValue appendString:@"%"];
+		//[bindValue appendString:@"%"];
 		
 		sqlite3_bind_text(statement, 1, [(NSString *)bindValue UTF8String], -1, SQLITE_TRANSIENT);
 
@@ -146,7 +145,7 @@ static NSDictionary *map = nil;
 	const char *sql = "INSERT INTO bookmark (rid,eng,type,geo,date,transcription) VALUES (?,?,?,?,datetime('now'),?)";
 	sqlite3_stmt *statement;
 	
-	if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) == SQLITE_OK) {
+	if (sqlite3_prepare_v2(databaseBookmark, sql, -1, &statement, NULL) == SQLITE_OK) {
 		
 		sqlite3_bind_int(statement, 1, (int)trn.pk);
 		sqlite3_bind_text(statement, 2, [(NSString *)trn.eng UTF8String], -1, SQLITE_TRANSIENT);
@@ -157,15 +156,15 @@ static NSDictionary *map = nil;
 		int success = sqlite3_step(statement);
 		
 		if (success == SQLITE_ERROR) {
-			//NSLog(@"Error: failed to insert into the database with message '%s'.", sqlite3_errmsg(database));
+			//NSLog(@"Error: failed to insert into the database with message '%s'.", sqlite3_errmsg(databaseBookmark));
 		} else {
-			//NSLog(@"Primary Key: %d", sqlite3_last_insert_rowid(database));
+			//NSLog(@"Primary Key: %d", sqlite3_last_insert_rowid(databaseBookmark));
 		}
 		
 		sqlite3_finalize(statement);
 		
 	} else {
-		//NSLog(@"Error: failed to insert into the database with message '%s'.", sqlite3_errmsg(database));
+		//NSLog(@"Error: failed to insert into the database with message '%s'.", sqlite3_errmsg(databaseBookmark));
 	}
 	
 	[self loadAllBookmarks];
@@ -174,40 +173,47 @@ static NSDictionary *map = nil;
 
 - (void)loadAllBookmarks {
 	
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"ilingoka.sqlite"];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"ilingoka_bookmarks.sqlite"];
+    BOOL success = [fileManager fileExistsAtPath:path];
     
-    if (sqlite3_open([path UTF8String], &database) == SQLITE_OK) {
+    if (sqlite3_open([path UTF8String], &databaseBookmark ) == SQLITE_OK) {
 	
-		[self.bookmarks release];
-		self.bookmarks = [[NSMutableArray alloc] init];
-		[self.bookmarks retain];
-	
-		const char *sql = "SELECT id, rid, eng, type, geo, date, transcription FROM bookmark ORDER BY eng, date DESC";
-		sqlite3_stmt *statement;
-	
-		if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) == SQLITE_OK) {
-			
-			while(sqlite3_step(statement) == SQLITE_ROW) {
-				Bookmark *item = [[Bookmark alloc] init];
-				item.pk = (NSInteger *)sqlite3_column_int(statement, 0);
-				item.rid = (NSInteger *)sqlite3_column_int(statement, 1);
-				item.eng = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 2)];
-				item.type = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 3)];
-				item.types = [item.type componentsSeparatedByString:@"~"];
-				item.geo = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 4)];
-				item.geoArray = [item.geo componentsSeparatedByString:@"~"];
-				item.date = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 5)];
-				item.transcription = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 6)];
-				[self.bookmarks addObject:item];
-			}
-		
-		}  else {
-			NSLog(@"Error: failed to insert into the database with message '%s'.", sqlite3_errmsg(database));
-		}
-		
-		sqlite3_finalize(statement);
+        if( !success ) {
+            [self createBookmarkTable];
+        } else {
+        
+            [self.bookmarks release];
+             self.bookmarks = [[NSMutableArray alloc] init];
+            [self.bookmarks retain];
+        
+            const char *sql = "SELECT id, rid, eng, type, geo, date, transcription FROM bookmark ORDER BY eng, date DESC";
+            sqlite3_stmt *statement;
+        
+            if (sqlite3_prepare_v2(databaseBookmark, sql, -1, &statement, NULL) == SQLITE_OK) {
+                
+                while(sqlite3_step(statement) == SQLITE_ROW) {
+                    Bookmark *item = [[Bookmark alloc] init];
+                    item.pk = (NSInteger *)sqlite3_column_int(statement, 0);
+                    item.rid = (NSInteger *)sqlite3_column_int(statement, 1);
+                    item.eng = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 2)];
+                    item.type = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 3)];
+                    item.types = [item.type componentsSeparatedByString:@"~"];
+                    item.geo = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 4)];
+                    item.geoArray = [item.geo componentsSeparatedByString:@"~"];
+                    item.date = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 5)];
+                    item.transcription = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 6)];
+                    [self.bookmarks addObject:item];
+                }
+            
+            }  else {
+                NSLog(@"Error: failed to insert into the database with message '%s'.", sqlite3_errmsg(databaseBookmark));
+            }
+            
+            sqlite3_finalize(statement);
+        }
 	
 	}
 	
@@ -219,15 +225,15 @@ static NSDictionary *map = nil;
 	const char *sql = "SELECT rid FROM bookmark WHERE rid=?";
 	sqlite3_stmt *statement;
 	
-	if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) == SQLITE_OK) {
+	if (sqlite3_prepare_v2(databaseBookmark, sql, -1, &statement, NULL) == SQLITE_OK) {
 		sqlite3_bind_int(statement, 1, rid);
 		if (sqlite3_step(statement) == SQLITE_ROW) {
 			ret = YES;
 		} else {
-			NSLog(@"SQLite Step Error: ", sqlite3_errmsg(database));
+			NSLog(@"SQLite Step Error: ", sqlite3_errmsg(databaseBookmark));
 		}
 	} else {
-		NSLog(@"SQLite Statement Prepare Error: ", sqlite3_errmsg(database));
+		NSLog(@"SQLite Statement Prepare Error: ", sqlite3_errmsg(databaseBookmark));
 	}
 	
 	sqlite3_finalize(statement);
@@ -242,7 +248,7 @@ static NSDictionary *map = nil;
 	sqlite3_stmt *statement;
 	int bcount = 0;
 	
-	if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL)) {
+	if (sqlite3_prepare_v2(databaseBookmark, sql, -1, &statement, NULL)) {
 		sqlite3_step(statement);
 		bcount = sqlite3_column_int(statement, 0);
 	}
@@ -258,15 +264,28 @@ static NSDictionary *map = nil;
 	const char *sql = "DELETE FROM bookmark WHERE id=?";
 	sqlite3_stmt *statement;
 	
-	if (sqlite3_prepare_v2(database, sql, -1, &statement, NULL) == SQLITE_OK) {
+	if (sqlite3_prepare_v2(databaseBookmark, sql, -1, &statement, NULL) == SQLITE_OK) {
 		sqlite3_bind_int(statement, 1, (int)bookmark.pk);
 		sqlite3_step(statement);
 		[self loadAllBookmarks];
 	}
 		
 	sqlite3_finalize(statement);
-	
 }
+            
+- (void)createBookmarkTable {
+    
+    const char *sql = "CREATE TABLE `bookmark` (`id` INTEGER PRIMARY KEY  DEFAULT '', `rid` INTEGER DEFAULT '', \
+    `eng` VARCHAR DEFAULT '', `type` CHAR DEFAULT '', `geo` VARCHAR DEFAULT '', `date` DATETIME DEFAULT '', `transcription` VARCHAR DEFAULT '')";
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_prepare_v2(databaseBookmark, sql, -1, &statement, NULL) == SQLITE_OK) {
+        sqlite3_step(statement);
+    }
+    
+    sqlite3_finalize(statement);
+}
+            
 
 - (void)dealloc {
 	[navigationController release];

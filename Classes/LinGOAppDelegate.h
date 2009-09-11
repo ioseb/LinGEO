@@ -14,7 +14,9 @@
 	IBOutlet UINavigationController *navigationController;
 	NSMutableArray *result;
 	NSMutableArray *bookmarks;
+    
 	sqlite3 *database;
+	sqlite3 *databaseBookmark;
 }
 
 @property (nonatomic, retain) UIWindow *window;
@@ -22,9 +24,11 @@
 @property (nonatomic, retain) NSMutableArray *result;
 @property (nonatomic, retain) NSMutableArray *bookmarks;
 
+- (void)openDatabase;
 - (void)search:(NSString *)word;
 - (void)addToBookmarks:(EngGeo *)trn;
 - (void)deleteBookmark:(Bookmark *)bookmark;
+- (void)createBookmarkTable;
 - (BOOL)bookmarkExists:(int)rid;
 
 @end
