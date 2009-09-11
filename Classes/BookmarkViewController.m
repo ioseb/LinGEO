@@ -186,7 +186,7 @@ SortedBookmarks *sortedBookmarks;
 
 // decide what kind of accesory view (to the far right) we will use
 - (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath {
-	return UITableViewCellAccessoryDetailDisclosureButton;
+	return UITableViewCellAccessoryDisclosureIndicator;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
