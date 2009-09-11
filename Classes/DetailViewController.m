@@ -52,6 +52,9 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if (cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+        
+        // disable selection
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 	}	
 	
 	NSMutableString *_geo;
