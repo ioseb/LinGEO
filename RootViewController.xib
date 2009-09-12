@@ -48,6 +48,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+						<bool key="IBUIBouncesZoom">NO</bool>
 						<int key="IBUISeparatorStyle">1</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
@@ -68,6 +69,9 @@
 						<bool key="IBShowsBookmarkButton">YES</bool>
 						<bool key="IBShowsCancelButton">YES</bool>
 						<object class="IBUITextInputTraits" key="IBTextInputTraits"/>
+						<object class="NSArray" key="IBScopeButtonTitles">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 460}</string>
