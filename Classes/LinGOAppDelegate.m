@@ -228,8 +228,6 @@ static NSDictionary *map = nil;
 		sqlite3_bind_int(statement, 1, rid);
 		if (sqlite3_step(statement) == SQLITE_ROW) {
 			ret = YES;
-		} else {
-			NSLog(@"SQLite Step Error: ", sqlite3_errmsg(databaseBookmark));
 		}
 	} else {
 		NSLog(@"SQLite Statement Prepare Error: ", sqlite3_errmsg(databaseBookmark));
