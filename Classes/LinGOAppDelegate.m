@@ -12,7 +12,6 @@
 static NSDictionary *map = nil;
 
 @interface LinGOAppDelegate()
-- (void) createEditableCopyOfDatabaseIfNeeded;
 - (void) loadAllBookmarks;
 + (NSString *) convertToKA:(NSString *)str;
 @end
