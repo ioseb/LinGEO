@@ -24,6 +24,9 @@
 	} else {
 		aSearchBar.showsBookmarkButton = YES;
 	}
+    
+    // set focus in search bar
+    [aSearchBar becomeFirstResponder];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
