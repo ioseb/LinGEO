@@ -1,9 +1,9 @@
 //
 //  BookmarkDetailViewController.m
-//  LinGO
+//  LinGEO
 
 #import "BookmarkDetailViewController.h"
-#import "LinGOAppDelegate.h"
+#import "LinGEOAppDelegate.h"
 #import "BookmarkViewController.h"
 
 @interface BookmarkDetailViewController() 
@@ -107,7 +107,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 0) {
-		LinGOAppDelegate *delegate = (LinGOAppDelegate *)[[UIApplication sharedApplication] delegate];
+		LinGEOAppDelegate *delegate = (LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate];
 		[delegate deleteBookmark:self.bookmark];
 		[self.navigationController popViewControllerAnimated:YES];
 	}

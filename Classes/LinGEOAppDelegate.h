@@ -1,6 +1,6 @@
 //
-//  LinGOAppDelegate.h
-//  LinGO
+//  LinGEOAppDelegate.h
+//  LinGEO
 //
 
 #import <UIKit/UIKit.h>
@@ -9,7 +9,7 @@
 @class EngGeo;
 @class Bookmark;
 
-@interface LinGOAppDelegate : NSObject <UIApplicationDelegate> {
+@interface LinGEOAppDelegate : NSObject <UIApplicationDelegate> {
 	IBOutlet UIWindow *window;
 	IBOutlet UINavigationController *navigationController;
 	NSMutableArray *result;

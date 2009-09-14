@@ -1,6 +1,6 @@
 //
 //  EngGeo.m
-//  LinGO
+//  LinGEO
 //
 
 #import "EngGeo.h"

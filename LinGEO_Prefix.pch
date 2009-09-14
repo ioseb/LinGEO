@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'LinGO' target in the 'LinGO' project
+// Prefix header for all source files of the 'LinGEO' target in the 'LinGEO' project
 //
 
 #ifdef __OBJC__

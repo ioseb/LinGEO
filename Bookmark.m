@@ -1,6 +1,6 @@
 //
 //  Bookmark.m
-//  LinGO
+//  LinGEO
 //
 
 #import "Bookmark.h"

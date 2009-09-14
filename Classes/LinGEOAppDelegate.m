@@ -1,9 +1,9 @@
 //
-//  LinGOAppDelegate.m
-//  LinGOs
+//  LinGEOAppDelegate.m
+//  LinGEO
 //
 
-#import "LinGOAppDelegate.h"
+#import "LinGEOAppDelegate.h"
 #import "RootViewController.h"
 #import "BookmarkViewController.h"
 #import "EngGeo.h"
@@ -11,12 +11,12 @@
 
 static NSDictionary *map = nil;
 
-@interface LinGOAppDelegate()
+@interface LinGEOAppDelegate()
 - (void) loadAllBookmarks;
 + (NSString *) convertToKA:(NSString *)str;
 @end
 
-@implementation LinGOAppDelegate
+@implementation LinGEOAppDelegate
 
 @synthesize window, navigationController, result, bookmarks;
 
@@ -108,7 +108,7 @@ static NSDictionary *map = nil;
 		while (sqlite3_step(statement) == SQLITE_ROW) {
 
 			NSString *eng = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 1)];
-			NSString *geo = [LinGOAppDelegate convertToKA:[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 3)]];
+			NSString *geo = [LinGEOAppDelegate convertToKA:[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 3)]];
 			EngGeo *prev = nil;
 			
 			if ([self.result count] > 0) {

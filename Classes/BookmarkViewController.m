@@ -1,9 +1,9 @@
 //
 //  BookmarkViewController.m
-//  LinGO
+//  LinGEO
 //
 
-#import "LinGOAppDelegate.h"
+#import "LinGEOAppDelegate.h"
 #import "BookmarkViewController.h"
 #import "BookmarkDetailViewController.h"
 #import "Bookmark.h"
@@ -114,7 +114,7 @@ SortedBookmarks *sortedBookmarks;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	LinGOAppDelegate *delegate = (LinGOAppDelegate *)[[UIApplication sharedApplication] delegate];
+	LinGEOAppDelegate *delegate = (LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate];
 	if (sortedBookmarks != nil) {
 		[sortedBookmarks release];
 	}
@@ -172,7 +172,7 @@ SortedBookmarks *sortedBookmarks;
 					forRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		[self.aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-		LinGOAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+		LinGEOAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
 		[delegate deleteBookmark:(Bookmark *)[sortedBookmarks bookmarkForSection:indexPath.section row:indexPath.row]];
 		[self viewWillAppear:YES];
     }

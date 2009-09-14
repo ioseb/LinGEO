@@ -1,6 +1,6 @@
 //
 //  main.m
-//  LinGO
+//  LinGEO
 
 #import <UIKit/UIKit.h>
 

@@ -1,10 +1,10 @@
 //
 //  RootViewController.m
-//  LinGO
+//  LinGEO
 //
 
 #import "RootViewController.h"
-#import "LinGOAppDelegate.h"
+#import "LinGEOAppDelegate.h"
 #import "EngGeo.h"
 #import "DetailViewController.h"
 #import "BookmarkViewController.h"
@@ -18,7 +18,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	LinGOAppDelegate *appDelegate = (LinGOAppDelegate *)[[UIApplication sharedApplication] delegate];
+	LinGEOAppDelegate *appDelegate = (LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate];
 	if ([appDelegate.bookmarks count] == 0) {
 		aSearchBar.showsBookmarkButton = NO;
 	} else {
@@ -35,7 +35,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	LinGOAppDelegate *appDelegate = (LinGOAppDelegate *)[[UIApplication sharedApplication] delegate];
+	LinGEOAppDelegate *appDelegate = (LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate];
 	return [appDelegate.result count];
 }
 
@@ -49,7 +49,7 @@
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 	}
 	
-	LinGOAppDelegate *appDelegate = (LinGOAppDelegate *)[[UIApplication sharedApplication] delegate];
+	LinGEOAppDelegate *appDelegate = (LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate];
 	
 	cell.text = [(EngGeo *)[appDelegate.result objectAtIndex:indexPath.row] eng];
 	
@@ -64,7 +64,7 @@
 
  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	 DetailViewController *detailView = [[DetailViewController alloc] initWithNibName:@"DetailView" bundle:nil];
-	 detailView.trn = (EngGeo *)[((LinGOAppDelegate *)[[UIApplication sharedApplication] delegate]).result objectAtIndex:indexPath.row];
+	 detailView.trn = (EngGeo *)[((LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate]).result objectAtIndex:indexPath.row];
 	 [self.navigationController pushViewController:detailView animated:YES];
 	 [detailView release];
 }
@@ -104,7 +104,7 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-	LinGOAppDelegate *appDelegate = (LinGOAppDelegate *)[[UIApplication sharedApplication] delegate];
+	LinGEOAppDelegate *appDelegate = (LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate];
 	[appDelegate search:aSearchBar.text];
 	[aTableView reloadData];
 }

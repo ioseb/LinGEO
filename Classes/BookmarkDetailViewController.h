@@ -1,6 +1,6 @@
 //
 //  BookmarkDetailViewController.h
-//  LinGO
+//  LinGEO
 //
 
 #import <UIKit/UIKit.h>

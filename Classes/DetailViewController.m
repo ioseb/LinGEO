@@ -1,9 +1,9 @@
 //
 //  DetailViewController.m
-//  LinGO
+//  LinGEO
 //
 
-#import "LinGOAppDelegate.h"
+#import "LinGEOAppDelegate.h"
 #import "DetailViewController.h"
 
 @interface DetailViewController()
@@ -89,7 +89,7 @@
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] 
 											  initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks 
 											  target:self action:@selector(addToBookmarks)];
-	LinGOAppDelegate *delegate = (LinGOAppDelegate *)[[UIApplication sharedApplication] delegate];
+	LinGEOAppDelegate *delegate = (LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate];
 	if ([delegate bookmarkExists:(int)trn.pk]) {
 		self.navigationItem.rightBarButtonItem.enabled = NO;
 	}
@@ -97,7 +97,7 @@
 
 - (void)addToBookmarks {
 	self.navigationItem.rightBarButtonItem.enabled = NO;
-	LinGOAppDelegate *appDelegate = (LinGOAppDelegate *)[[UIApplication sharedApplication] delegate];
+	LinGEOAppDelegate *appDelegate = (LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate];
 	[appDelegate addToBookmarks:trn];
 }
 
