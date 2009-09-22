@@ -61,16 +61,16 @@
 	
 	switch (indexPath.section) {
 		case 0: 
-			cell.text = trn.eng;
+			cell.textLabel.text = trn.eng;
 			break;
 		case 1:
-			cell.text = trn.transcription;
+			cell.textLabel.text = trn.transcription;
 			break;
 		case 2:
 			_geo = [NSMutableString stringWithString:[trn.types objectAtIndex:indexPath.row]];
 			[_geo appendString:@" - "];
 			[_geo appendString:[trn.geo objectAtIndex:indexPath.row]];
-			cell.text = [_geo description];
+			cell.textLabel.text = [_geo description];
 			break;
 	}
 	
@@ -102,8 +102,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations
-    return YES;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait) || (interfaceOrientation == UIInterfaceOrientationLandscapeRight) || (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
 

@@ -56,23 +56,32 @@
 	
 	NSDate *date;
 	NSMutableString *_geo;
+
+	// NSDate to user friendly NSString date formater
+	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init]  autorelease];
+	[dateFormatter setDateStyle:NSDateFormatterLongStyle];
+	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];	
 	
+	// SQL String to NSDate date formater
+	NSDateFormatter *stignToDateFormater = [[[NSDateFormatter alloc] init] autorelease];
+	[stignToDateFormater setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+
 	switch(indexPath.section) {
 		case 0:
-			date = [NSDate dateWithString:[NSString stringWithFormat:@"%@ +0000", bookmark.date]];
-			cell.text = [date descriptionWithCalendarFormat:@"%B %e, %Y" timeZone:nil locale:nil];
+			date = [stignToDateFormater dateFromString:[bookmark.date stringByAppendingString:@" +0000"]]; // NSDateFormaters are much more reliable and handle conversions much faster
+			cell.textLabel.text = [dateFormatter stringFromDate:date]; // This is old-school, never use that in Cocoa: [date descriptionWithCalendarFormat:@"%B %e, %Y" timeZone:nil locale:nil];
 			break;
 		case 1: 
-			cell.text = bookmark.eng; 
+			cell.textLabel.text = bookmark.eng; 
 			break;
 		case 2: 
-			cell.text = bookmark.transcription; 
+			cell.textLabel.text = bookmark.transcription; 
 			break;
 		case 3:
 			_geo = [NSMutableString stringWithString:[bookmark.types objectAtIndex:indexPath.row]];
 			[_geo appendString:@" - "];
 			[_geo appendString:[bookmark.geoArray objectAtIndex:indexPath.row]];
-			cell.text = _geo;
+			cell.textLabel.text = _geo;
 			break;
 	}
 	

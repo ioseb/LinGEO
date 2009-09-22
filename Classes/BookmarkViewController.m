@@ -160,7 +160,7 @@ SortedBookmarks *sortedBookmarks;
 	
 	NSString *cellText = [sortedBookmarks titleForRow:(int)indexPath.section row:(int)indexPath.row];
 	if (cellText) {
-		cell.text = cellText;
+		cell.textLabel.text = cellText;
 	}
 	
 	return cell;
@@ -195,8 +195,7 @@ SortedBookmarks *sortedBookmarks;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations
-    return YES;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait) || (interfaceOrientation == UIInterfaceOrientationLandscapeRight) || (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
 

@@ -47,31 +47,21 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if (cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
 	LinGEOAppDelegate *appDelegate = (LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate];
 	
-	cell.text = [(EngGeo *)[appDelegate.result objectAtIndex:indexPath.row] eng];
-	
-	// Set up the cell
+	cell.textLabel.text = [(EngGeo *)[appDelegate.result objectAtIndex:indexPath.row] eng];
+
 	return cell;
 }
 
-// decide what kind of accesory view (to the far right) we will use
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath {
-	return UITableViewCellAccessoryDisclosureIndicator;
-}
-
- - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	 DetailViewController *detailView = [[DetailViewController alloc] initWithNibName:@"DetailView" bundle:nil];
 	 detailView.trn = (EngGeo *)[((LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate]).result objectAtIndex:indexPath.row];
 	 [self.navigationController pushViewController:detailView animated:YES];
 	 [detailView release];
-}
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-	[aTableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-	[self tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -86,8 +76,7 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations
-    return YES;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait) || (interfaceOrientation == UIInterfaceOrientationLandscapeRight) || (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
 
