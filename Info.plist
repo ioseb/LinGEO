@@ -26,6 +26,8 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIPrerenderedIcon</key>
+	<string>true</string>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 </dict>

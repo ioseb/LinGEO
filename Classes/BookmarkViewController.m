@@ -20,6 +20,7 @@
 - (id)initWithBookmarks:(NSMutableArray *)bookmarks;
 - (int)numberOfRowsInSection:(int)section;
 - (NSString *)sectionTitle:(int)section;
+- (BOOL) rmeoveBookmark:(int)section row:(int)row;
 - (Bookmark *)bookmarkForSection:(int)section row:(int)row;
 
 @end
@@ -73,8 +74,29 @@
 	return @"List is Empty";
 }
 
+// Return YES if removed entire section, otherwise NO
+- (BOOL) rmeoveBookmark:(int)section row:(int)row {
+    if ([keys count] > 0) {
+        
+        NSString *chr = (NSString *)[keys objectAtIndex:section];
+        NSMutableArray *values = [mappings objectForKey:chr];
+        [values removeObjectAtIndex:row];
+        
+        if([values count] == 0) {
+            [keys removeObjectAtIndex:section];    
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
 - (Bookmark *)bookmarkForSection:(int)section row:(int)row {
-	return (Bookmark *)[(NSMutableArray *)[mappings objectForKey:[keys objectAtIndex:section]] objectAtIndex:row];
+    if ([keys count] > 0) {
+        return (Bookmark *)[(NSMutableArray *)[mappings objectForKey:[keys objectAtIndex:section]] objectAtIndex:row];
+    }
+    
+    return nil;
 }
 
 - (NSString *)titleForRow:(int)section row:(int)row {
@@ -96,6 +118,7 @@
 @interface BookmarkViewController()
 SortedBookmarks *sortedBookmarks;
 @end
+
 
 @implementation BookmarkViewController
 
@@ -120,10 +143,16 @@ SortedBookmarks *sortedBookmarks;
 	}
 	sortedBookmarks = [[SortedBookmarks alloc] initWithBookmarks:delegate.bookmarks];
 	[sortedBookmarks retain];
-	if ([sortedBookmarks.keys count] == 0) {
+
+    [self updateBarButtons];
+    
+	[aTableView reloadData];
+}
+
+- (void)updateBarButtons {
+    if ([sortedBookmarks.keys count] == 0) {
 		self.navigationItem.rightBarButtonItem.enabled = NO;
 	}
-	[aTableView reloadData];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -133,11 +162,7 @@ SortedBookmarks *sortedBookmarks;
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	int numberOfSections = [sortedBookmarks.keys count];
-	if (numberOfSections == 0) {
-		numberOfSections = 1;
-	}
-	return numberOfSections;
+	return [sortedBookmarks.keys count];
 }
 
 
@@ -149,6 +174,7 @@ SortedBookmarks *sortedBookmarks;
 	return [sortedBookmarks sectionTitle:(int)section];
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	static NSString *MyIdentifier = @"MyIdentifier";
@@ -156,6 +182,7 @@ SortedBookmarks *sortedBookmarks;
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if (cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
 	NSString *cellText = [sortedBookmarks titleForRow:(int)indexPath.section row:(int)indexPath.row];
@@ -171,10 +198,23 @@ SortedBookmarks *sortedBookmarks;
 					commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 					forRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
-		[self.aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+        [aTableView beginUpdates];
+        
 		LinGEOAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-		[delegate deleteBookmark:(Bookmark *)[sortedBookmarks bookmarkForSection:indexPath.section row:indexPath.row]];
-		[self viewWillAppear:YES];
+		Bookmark *bookmark = [sortedBookmarks bookmarkForSection:(int)indexPath.section row:indexPath.row];
+        
+        [delegate deleteBookmark:bookmark];
+        
+        if( [sortedBookmarks rmeoveBookmark:indexPath.section row:indexPath.row] == YES ) {
+            [aTableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];        
+        } else {
+            [aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        
+        [aTableView endUpdates];
+        
+        [self updateBarButtons];
     }
 }
 
@@ -184,10 +224,6 @@ SortedBookmarks *sortedBookmarks;
 	[self.navigationController pushViewController:detailView animated:YES];
 }
 
-// decide what kind of accesory view (to the far right) we will use
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath {
-	return UITableViewCellAccessoryDisclosureIndicator;
-}
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
 	[aTableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
