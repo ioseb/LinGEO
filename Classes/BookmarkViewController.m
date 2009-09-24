@@ -20,7 +20,7 @@
 - (id)initWithBookmarks:(NSMutableArray *)bookmarks;
 - (int)numberOfRowsInSection:(int)section;
 - (NSString *)sectionTitle:(int)section;
-- (BOOL) rmeoveBookmark:(int)section row:(int)row;
+- (BOOL) removeBookmark:(int)section row:(int)row;
 - (Bookmark *)bookmarkForSection:(int)section row:(int)row;
 
 @end
@@ -75,7 +75,7 @@
 }
 
 // Return YES if removed entire section, otherwise NO
-- (BOOL) rmeoveBookmark:(int)section row:(int)row {
+- (BOOL) removeBookmark:(int)section row:(int)row {
     if ([keys count] > 0) {
         
         NSString *chr = (NSString *)[keys objectAtIndex:section];
@@ -206,7 +206,7 @@ SortedBookmarks *sortedBookmarks;
         
         [delegate deleteBookmark:bookmark];
         
-        if( [sortedBookmarks rmeoveBookmark:indexPath.section row:indexPath.row] == YES ) {
+        if( [sortedBookmarks removeBookmark:indexPath.section row:indexPath.row] == YES ) {
             [aTableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];        
         } else {
             [aTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
