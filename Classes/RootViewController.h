@@ -4,13 +4,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShadowedTableView.h"
 
 @interface RootViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
-	IBOutlet UITableView *aTableView;
+    
+	IBOutlet ShadowedTableView *aTableView;
 	IBOutlet UISearchBar *aSearchBar;
+    
 }
 
-@property (retain) UITableView *aTableView;
+@property (retain) ShadowedTableView *aTableView;
 @property (retain) UISearchBar *aSearchBar;
 
 @end

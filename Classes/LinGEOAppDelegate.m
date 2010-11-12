@@ -14,6 +14,17 @@ static NSDictionary *map = nil;
 @interface LinGEOAppDelegate()
 - (void) loadAllBookmarks;
 + (NSString *) convertToKA:(NSString *)str;
+- (void)showSplashView;
+- (void)startupAnimationDone:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
+@end
+
+@interface UINavigationBar (MyCustomNavBar)
+@end
+@implementation UINavigationBar (MyCustomNavBar)
+- (void) drawRect:(CGRect)rect {
+    UIImage *barImage = [UIImage imageNamed:@"background.png"];
+    [barImage drawInRect:rect];
+}
 @end
 
 @implementation LinGEOAppDelegate
@@ -34,9 +45,14 @@ static NSDictionary *map = nil;
     [self openDatabase];
     
 	[self loadAllBookmarks];
-	
+	    
+    // Set navigation button color
+    [[navigationController navigationBar] setTintColor:[UIColor colorWithRed:51.0f/255.0f green:24.0f/255.0f blue:10.0f/255.0f alpha:1.0f]];
+    
     [window addSubview:[navigationController view]];
 	[window makeKeyAndVisible];
+    
+    [self showSplashView];
 }
 
 // Open readonly database from main Bundle
@@ -291,6 +307,29 @@ static NSDictionary *map = nil;
 	[result release];
 	[map release];
 	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark Splash screen methods
+
+- (void)showSplashView {
+    splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    splashView.image = [UIImage imageNamed:@"Default.png"];
+    [window addSubview:splashView];
+    [window bringSubviewToFront:splashView];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:window cache:YES];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(startupAnimationDone:finished:context:)];
+    splashView.alpha = 0.0;
+    splashView.frame = CGRectMake(-60, -60, 440, 600);
+    [UIView commitAnimations];
+}
+
+- (void)startupAnimationDone:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
+    [splashView removeFromSuperview];
+    [splashView release];
 }
 
 @end

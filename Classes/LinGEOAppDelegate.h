@@ -17,6 +17,8 @@
     
 	sqlite3 *database;
 	sqlite3 *databaseBookmark;
+    
+    UIImageView *splashView;
 }
 
 @property (nonatomic, retain) UIWindow *window;

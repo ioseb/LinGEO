@@ -4,8 +4,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShadowedTableView.h"
 
-@interface BookmarkViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+
+@interface BookmarkViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
 	IBOutlet UITableView *aTableView;
 }
 
