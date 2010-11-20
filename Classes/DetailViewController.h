@@ -4,20 +4,23 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iAd/iAd.h>
+
+
 #import "ShadowedTableView.h"
 #import "EngGeo.h"
+#import "AdViewController.h"
 
-@interface DetailViewController : UIViewController <ADBannerViewDelegate> {
-
+@interface DetailViewController : UIViewController {
+    
+    AdViewController  *adViewController;
+    
     IBOutlet UIWebView  *webView;
 	EngGeo *trn;
     
-    ADBannerView *banner;
 }
 
 @property (nonatomic, retain) UIWebView *webView;
-@property (nonatomic, retain) EngGeo *trn;
-@property (nonatomic, retain) IBOutlet ADBannerView *banner;
-
+@property (nonatomic, retain) EngGeo *trn;    
+@property (nonatomic, retain) AdViewController *adViewController;
+    
 @end

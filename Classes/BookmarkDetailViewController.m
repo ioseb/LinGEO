@@ -10,6 +10,7 @@
 @implementation BookmarkDetailViewController
 
 @synthesize webView, bookmark;
+@synthesize adViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -42,8 +43,8 @@
      "font-weight: bold;"
      "}"
      ".s4 {"
-     "background-color: #3D1600;"
-     "color: #C0C0C0;"
+    // "background-color: #3D1600;"
+    // "color: #C0C0C0;"
      "text-align: center;"
      "padding: 5 5 5 5;"
      "}"
@@ -56,7 +57,7 @@
      "</style>"
      "<body bgcolor='#FFF3E0'>"];
      
-     [string appendFormat:@"<div class='s3 s4'>Added - %@</div>", [bookmark date]];
+    // [string appendFormat:@"<div class='s3 s4'>Added - %@</div>", [bookmark date]];
      [string appendString:@"<div class='s5'>"];
      [string appendFormat:@"<div id='word'>%@</div>"
      "<div id='transcript'>&nbsp;%@</div>", [bookmark eng], [bookmark transcription] ];
@@ -97,6 +98,21 @@
     [webView loadHTMLString:output baseURL:nil];
     [output release];
     
+    
+    self.adViewController = [[AdViewController alloc] initWithController:self]; 
+    
+    // If the banner wasn't included in the nib, create one.
+    [adViewController createADBannerView];
+    
+    [adViewController layoutForCurrentOrientation:NO];
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [adViewController layoutForCurrentOrientation:NO];  
 }
 
 
@@ -181,6 +197,10 @@
     return YES;
 }
 
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [adViewController layoutForCurrentOrientation:YES];
+}
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
@@ -189,6 +209,7 @@
 
 
 - (void)dealloc {
+    [adViewController release];
 	[webView release];
 	[bookmark release];
 	[super dealloc];

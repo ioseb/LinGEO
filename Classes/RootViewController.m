@@ -76,12 +76,13 @@
 	if (cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyIdentifier] autorelease];
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
+     
         cell.textLabel.font = [UIFont fontWithName:@"Georgia" size:20.0f];
 	}
 	
 	LinGEOAppDelegate *appDelegate = (LinGEOAppDelegate *)[[UIApplication sharedApplication] delegate];
 	
+
 	// Add english word
     cell.textLabel.text = [(EngGeo *)[appDelegate.result objectAtIndex:indexPath.row] eng];
     cell.textLabel.backgroundColor = [UIColor clearColor];
@@ -103,6 +104,11 @@
     // --------------------------------------
     
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [[cell textLabel] setBackgroundColor:[UIColor clearColor]];
+    [[cell detailTextLabel] setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

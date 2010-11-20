@@ -26,12 +26,28 @@
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		C606177B106784870090295B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C606177A106784870090295B /* Default.png */; };
+		C6538938128DA68C00C8FC07 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6538937128DA68C00C8FC07 /* Entitlements.plist */; };
 		C68ADDDF128AA3B2001FFD4C /* ShadowedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C68ADDDE128AA3B2001FFD4C /* ShadowedTableView.m */; };
 		C68ADDED128AA3E9001FFD4C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68ADDEC128AA3E9001FFD4C /* QuartzCore.framework */; };
 		C6B01AC0128BEDEA0025D0A0 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C6B01ABF128BEDEA0025D0A0 /* background.png */; };
 		C6B01E51128D7C3D0025D0A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B01E50128D7C3D0025D0A0 /* MessageUI.framework */; };
-		C6DD1A4A12895DB70060AD95 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DD1A4912895DB70060AD95 /* iAd.framework */; };
 		C6E9FFA6105AAA4B001078EB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E9FFA5105AAA4B001078EB /* Icon.png */; };
+		C6F38AC2128E84E100B4535A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F38AC1128E84E100B4535A /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C6F38B7E128E8F0400B4535A /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38B7D128E8F0400B4535A /* AdViewController.m */; };
+		C6F38BC0128E92B400B4535A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F38BBF128E92B400B4535A /* AudioToolbox.framework */; };
+		C6F38BC3128E92C300B4535A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F38BC2128E92C300B4535A /* MediaPlayer.framework */; };
+		C6F38BC6128E92CE00B4535A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F38BC5128E92CE00B4535A /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C6F38C4C128E947700B4535A /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F38C4B128E947700B4535A /* libAdMob.a */; };
+		C6F38C66128E948600B4535A /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C51128E948600B4535A /* CDataScanner.m */; };
+		C6F38C67128E948600B4535A /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C54128E948600B4535A /* CDataScanner_Extensions.m */; };
+		C6F38C68128E948600B4535A /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C56128E948600B4535A /* NSCharacterSet_Extensions.m */; };
+		C6F38C69128E948600B4535A /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C58128E948600B4535A /* NSDictionary_JSONExtensions.m */; };
+		C6F38C6A128E948600B4535A /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C5A128E948600B4535A /* NSScanner_Extensions.m */; };
+		C6F38C6B128E948600B4535A /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C5D128E948600B4535A /* CJSONDataSerializer.m */; };
+		C6F38C6C128E948600B4535A /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C5F128E948600B4535A /* CJSONDeserializer.m */; };
+		C6F38C6D128E948600B4535A /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C61128E948600B4535A /* CJSONScanner.m */; };
+		C6F38C6E128E948600B4535A /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C63128E948600B4535A /* CJSONSerializer.m */; };
+		C6F38C6F128E948600B4535A /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C65128E948600B4535A /* CSerializedJSONData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,13 +80,44 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C606177A106784870090295B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C6538937128DA68C00C8FC07 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		C68ADDDD128AA3B2001FFD4C /* ShadowedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowedTableView.h; sourceTree = "<group>"; };
 		C68ADDDE128AA3B2001FFD4C /* ShadowedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowedTableView.m; sourceTree = "<group>"; };
 		C68ADDEC128AA3E9001FFD4C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C6B01ABF128BEDEA0025D0A0 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		C6B01E50128D7C3D0025D0A0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		C6DD1A4912895DB70060AD95 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		C6E9FFA5105AAA4B001078EB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		C6F38AC1128E84E100B4535A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = iphonesimulator3.1.3/System/Library/Frameworks/iAd.framework; sourceTree = "<group>"; };
+		C6F38B7C128E8F0400B4535A /* AdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdViewController.h; sourceTree = "<group>"; };
+		C6F38B7D128E8F0400B4535A /* AdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdViewController.m; sourceTree = "<group>"; };
+		C6F38BBF128E92B400B4535A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C6F38BC2128E92C300B4535A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		C6F38BC5128E92CE00B4535A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C6F38C47128E947700B4535A /* AdMobDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobDelegateProtocol.h; sourceTree = "<group>"; };
+		C6F38C48128E947700B4535A /* AdMobInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobInterstitialAd.h; sourceTree = "<group>"; };
+		C6F38C49128E947700B4535A /* AdMobInterstitialDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobInterstitialDelegateProtocol.h; sourceTree = "<group>"; };
+		C6F38C4A128E947700B4535A /* AdMobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobView.h; sourceTree = "<group>"; };
+		C6F38C4B128E947700B4535A /* libAdMob.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdMob.a; sourceTree = "<group>"; };
+		C6F38C50128E948600B4535A /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
+		C6F38C51128E948600B4535A /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
+		C6F38C53128E948600B4535A /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
+		C6F38C54128E948600B4535A /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner_Extensions.m; sourceTree = "<group>"; };
+		C6F38C55128E948600B4535A /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCharacterSet_Extensions.h; sourceTree = "<group>"; };
+		C6F38C56128E948600B4535A /* NSCharacterSet_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSCharacterSet_Extensions.m; sourceTree = "<group>"; };
+		C6F38C57128E948600B4535A /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		C6F38C58128E948600B4535A /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		C6F38C59128E948600B4535A /* NSScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSScanner_Extensions.h; sourceTree = "<group>"; };
+		C6F38C5A128E948600B4535A /* NSScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSScanner_Extensions.m; sourceTree = "<group>"; };
+		C6F38C5C128E948600B4535A /* CJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDataSerializer.h; sourceTree = "<group>"; };
+		C6F38C5D128E948600B4535A /* CJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDataSerializer.m; sourceTree = "<group>"; };
+		C6F38C5E128E948600B4535A /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		C6F38C5F128E948600B4535A /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		C6F38C60128E948600B4535A /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONScanner.h; sourceTree = "<group>"; };
+		C6F38C61128E948600B4535A /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONScanner.m; sourceTree = "<group>"; };
+		C6F38C62128E948600B4535A /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		C6F38C63128E948600B4535A /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		C6F38C64128E948600B4535A /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSerializedJSONData.h; sourceTree = "<group>"; };
+		C6F38C65128E948600B4535A /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSerializedJSONData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +129,13 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				13B850510E461FA80058FDC2 /* libsqlite3.dylib in Frameworks */,
-				C6DD1A4A12895DB70060AD95 /* iAd.framework in Frameworks */,
 				C68ADDED128AA3E9001FFD4C /* QuartzCore.framework in Frameworks */,
 				C6B01E51128D7C3D0025D0A0 /* MessageUI.framework in Frameworks */,
+				C6F38AC2128E84E100B4535A /* iAd.framework in Frameworks */,
+				C6F38BC0128E92B400B4535A /* AudioToolbox.framework in Frameworks */,
+				C6F38BC3128E92C300B4535A /* MediaPlayer.framework in Frameworks */,
+				C6F38BC6128E92CE00B4535A /* MessageUI.framework in Frameworks */,
+				C6F38C4C128E947700B4535A /* libAdMob.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +155,8 @@
 				139F57BA0E450A23009EA047 /* BookmarkViewController.m */,
 				13B84F130E45C81E0058FDC2 /* BookmarkDetailViewController.h */,
 				13B84F140E45C81E0058FDC2 /* BookmarkDetailViewController.m */,
+				C6F38B7C128E8F0400B4535A /* AdViewController.h */,
+				C6F38B7D128E8F0400B4535A /* AdViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -132,6 +185,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C6F38C4F128E948600B4535A /* TouchJSON */,
+				C6F38C46128E947700B4535A /* AdMob */,
 				13B8503D0E461E3E0058FDC2 /* DB */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -164,6 +219,7 @@
 				139F57040E44FC37009EA047 /* DetailView.xib */,
 				139F57B60E450A0B009EA047 /* BookmarkView.xib */,
 				13B84F760E45CCFE0058FDC2 /* BookmarkDetailView.xib */,
+				C6538937128DA68C00C8FC07 /* Entitlements.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -171,15 +227,73 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6F38AC1128E84E100B4535A /* iAd.framework */,
 				C68ADDEC128AA3E9001FFD4C /* QuartzCore.framework */,
 				C6B01E50128D7C3D0025D0A0 /* MessageUI.framework */,
-				C6DD1A4912895DB70060AD95 /* iAd.framework */,
 				13B850500E461FA80058FDC2 /* libsqlite3.dylib */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				C6F38BBF128E92B400B4535A /* AudioToolbox.framework */,
+				C6F38BC2128E92C300B4535A /* MediaPlayer.framework */,
+				C6F38BC5128E92CE00B4535A /* MessageUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6F38C46128E947700B4535A /* AdMob */ = {
+			isa = PBXGroup;
+			children = (
+				C6F38C47128E947700B4535A /* AdMobDelegateProtocol.h */,
+				C6F38C48128E947700B4535A /* AdMobInterstitialAd.h */,
+				C6F38C49128E947700B4535A /* AdMobInterstitialDelegateProtocol.h */,
+				C6F38C4A128E947700B4535A /* AdMobView.h */,
+				C6F38C4B128E947700B4535A /* libAdMob.a */,
+			);
+			path = AdMob;
+			sourceTree = "<group>";
+		};
+		C6F38C4F128E948600B4535A /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				C6F38C50128E948600B4535A /* CDataScanner.h */,
+				C6F38C51128E948600B4535A /* CDataScanner.m */,
+				C6F38C52128E948600B4535A /* Extensions */,
+				C6F38C5B128E948600B4535A /* JSON */,
+			);
+			path = TouchJSON;
+			sourceTree = "<group>";
+		};
+		C6F38C52128E948600B4535A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C6F38C53128E948600B4535A /* CDataScanner_Extensions.h */,
+				C6F38C54128E948600B4535A /* CDataScanner_Extensions.m */,
+				C6F38C55128E948600B4535A /* NSCharacterSet_Extensions.h */,
+				C6F38C56128E948600B4535A /* NSCharacterSet_Extensions.m */,
+				C6F38C57128E948600B4535A /* NSDictionary_JSONExtensions.h */,
+				C6F38C58128E948600B4535A /* NSDictionary_JSONExtensions.m */,
+				C6F38C59128E948600B4535A /* NSScanner_Extensions.h */,
+				C6F38C5A128E948600B4535A /* NSScanner_Extensions.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C6F38C5B128E948600B4535A /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				C6F38C5C128E948600B4535A /* CJSONDataSerializer.h */,
+				C6F38C5D128E948600B4535A /* CJSONDataSerializer.m */,
+				C6F38C5E128E948600B4535A /* CJSONDeserializer.h */,
+				C6F38C5F128E948600B4535A /* CJSONDeserializer.m */,
+				C6F38C60128E948600B4535A /* CJSONScanner.h */,
+				C6F38C61128E948600B4535A /* CJSONScanner.m */,
+				C6F38C62128E948600B4535A /* CJSONSerializer.h */,
+				C6F38C63128E948600B4535A /* CJSONSerializer.m */,
+				C6F38C64128E948600B4535A /* CSerializedJSONData.h */,
+				C6F38C65128E948600B4535A /* CSerializedJSONData.m */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +355,7 @@
 				C6E9FFA6105AAA4B001078EB /* Icon.png in Resources */,
 				C606177B106784870090295B /* Default.png in Resources */,
 				C6B01AC0128BEDEA0025D0A0 /* background.png in Resources */,
+				C6538938128DA68C00C8FC07 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +375,17 @@
 				13B84F150E45C81E0058FDC2 /* BookmarkDetailViewController.m in Sources */,
 				131106200E46676500ADB761 /* Bookmark.m in Sources */,
 				C68ADDDF128AA3B2001FFD4C /* ShadowedTableView.m in Sources */,
+				C6F38B7E128E8F0400B4535A /* AdViewController.m in Sources */,
+				C6F38C66128E948600B4535A /* CDataScanner.m in Sources */,
+				C6F38C67128E948600B4535A /* CDataScanner_Extensions.m in Sources */,
+				C6F38C68128E948600B4535A /* NSCharacterSet_Extensions.m in Sources */,
+				C6F38C69128E948600B4535A /* NSDictionary_JSONExtensions.m in Sources */,
+				C6F38C6A128E948600B4535A /* NSScanner_Extensions.m in Sources */,
+				C6F38C6B128E948600B4535A /* CJSONDataSerializer.m in Sources */,
+				C6F38C6C128E948600B4535A /* CJSONDeserializer.m in Sources */,
+				C6F38C6D128E948600B4535A /* CJSONScanner.m in Sources */,
+				C6F38C6E128E948600B4535A /* CJSONSerializer.m in Sources */,
+				C6F38C6F128E948600B4535A /* CSerializedJSONData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,13 +396,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lasha Dolidze (K49Y2SHJZG)";
 				COPY_PHASE_STRIP = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LinGEO_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AdMob\"",
+				);
 				PRODUCT_NAME = LinGEO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5CF2D47F-F20D-4A06-8FED-485F84020F9A";
 				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
@@ -285,11 +419,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lasha Dolidze (K49Y2SHJZG)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LinGEO_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AdMob\"",
+				);
 				PRODUCT_NAME = LinGEO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5CF2D47F-F20D-4A06-8FED-485F84020F9A";
 				SDKROOT = iphoneos4.1;
 			};
 			name = Release;
@@ -298,16 +440,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphonesimulator3.1.3;
 			};
 			name = Debug;
 		};
@@ -315,16 +456,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				PRODUCT_NAME = LinGEO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphonesimulator3.1.3;
 			};
 			name = Release;
 		};
@@ -332,16 +472,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				PRODUCT_NAME = LinGEO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphonesimulator3.1.3;
 			};
 			name = Distribution;
 		};
@@ -349,11 +488,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LinGEO_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AdMob\"",
+				);
 				PRODUCT_NAME = LinGEO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4D95D58D-0C7C-4767-9EFE-D64E871A2995";
 				SDKROOT = iphoneos4.1;
 			};
 			name = Distribution;
