@@ -6,6 +6,7 @@
 #import "LinGEOAppDelegate.h"
 #import "DetailViewController.h"
 
+
 @interface DetailViewController()
 - (void)addToBookmarks;
 @end
@@ -19,6 +20,7 @@
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+        
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
 		// Initialization code
 	}
@@ -33,7 +35,7 @@
     [string appendFormat:@"<html>"
     "<style>"
     "body {"
-    "margin: 10 10 20 40;"
+    "margin: 10 40 20 40;"
     "}"
     "#word {"
     "font-family: Georgia;"
@@ -49,6 +51,9 @@
     "font-size: 60px;"
     "font-weight: bold;"
     "}"
+    ".s7 {"
+    "border-bottom: 1px solid #c0c0c0;"
+    "}"
     "i {"
     "color: #72c53e;"
     "}"
@@ -59,11 +64,56 @@
 
     for(int i = 0; i < [trn.types count]; i++) {
         [string appendFormat:@"<div class='s3'>%d.&nbsp;<i>%@</i></div>", i + 1, [[trn.types objectAtIndex:i] lowercaseString]];
-        [string appendFormat:@"<div class='s3'>&nbsp;&nbsp;&nbsp;&nbsp;%@</div>", [trn.geo objectAtIndex:i]];
+        [string appendFormat:@"<div class='s3'>&nbsp;&nbsp;&nbsp;&nbsp;%@</div>"
+         "<div class='s7'><a href='callback:%d'><img id=\"mplayer%d\" src=\"Play-icon.png\" /></a></div>", [trn.geo objectAtIndex:i], i, i];
     }
     [string appendString:@"</body></html>"];
                                               
     return string;
+}
+
+-(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+    
+    if ( [[[inRequest URL] scheme] isEqualToString:@"callback"] ) {
+        
+        if([[PTeSpeak sharedPTeSpeak] isSpeak]) {
+            [[PTeSpeak sharedPTeSpeak] stop];
+            return NO;
+        }
+        
+        NSString *indexStr = [[[inRequest URL] absoluteString ] substringFromIndex:[[[inRequest URL] scheme] length] + 1];
+        
+        int inx = [indexStr intValue];
+        if(inx > -1) {
+            
+            selectedWord = inx;
+            [[PTeSpeak sharedPTeSpeak] speak:[trn.geo objectAtIndex:inx]];
+            
+        }
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)speakDidStart:(PTeSpeak *)espeak
+{
+    [self.webView stringByEvaluatingJavaScriptFromString:
+     [NSString stringWithFormat:@"var mid = document.getElementById(\"mplayer%d\");"    
+      "mid.src = \"Stop-icon.png\";", selectedWord]];
+}
+
+- (void)speakDidEnd:(PTeSpeak *)espeak
+{
+    [self.webView stringByEvaluatingJavaScriptFromString:
+     [NSString stringWithFormat:@"var mid = document.getElementById(\"mplayer%d\");"    
+      "mid.src = \"Play-icon.png\";", selectedWord]];
+}
+
+- (void)speakWithError:(PTeSpeak *)espeak error:(OSStatus)error
+{
+    [self.webView stringByEvaluatingJavaScriptFromString:@"alert('Unable to create Audio queue')"];
 }
 
 //If you need to do additional setup after loading the view, override viewDidLoad.
@@ -85,6 +135,10 @@
     
     [adViewController layoutForCurrentOrientation:NO];
     
+    //PTeSpeak *espeak = [PTeSpeak sharedPTeSpeak];
+
+    [[PTeSpeak sharedPTeSpeak] setDelegate:self];
+    [[PTeSpeak sharedPTeSpeak] setupWithVoice:@"ka" volume:100 rate:150 pitch:40];
     
     
  /*   NSString *path = [[NSBundle mainBundle] pathForResource:@"webViewContent" ofType:@"html"];
@@ -101,10 +155,21 @@
 	//
 	webView.opaque = NO;
 	webView.backgroundColor = [UIColor clearColor];
+    webView.delegate = self;
+    
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSURL *baseURL = [NSURL fileURLWithPath:path];
     
     NSMutableString *output = [self generateHTMLoutput];
-    [webView loadHTMLString:output baseURL:nil];
+    [webView loadHTMLString:output baseURL:baseURL];
     [output release];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [[PTeSpeak sharedPTeSpeak] stop];
 }
 
 - (void)addToBookmarks {

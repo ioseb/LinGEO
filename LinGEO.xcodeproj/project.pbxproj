@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,10 +25,46 @@
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
-		C606177B106784870090295B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C606177A106784870090295B /* Default.png */; };
 		C6538938128DA68C00C8FC07 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6538937128DA68C00C8FC07 /* Entitlements.plist */; };
 		C68ADDDF128AA3B2001FFD4C /* ShadowedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C68ADDDE128AA3B2001FFD4C /* ShadowedTableView.m */; };
 		C68ADDED128AA3E9001FFD4C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68ADDEC128AA3E9001FFD4C /* QuartzCore.framework */; };
+		C69479921524F73F00497D6B /* espeak-data in Resources */ = {isa = PBXBuildFile; fileRef = C69479911524F73F00497D6B /* espeak-data */; };
+		C69479BF1524F82A00497D6B /* compiledict.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479981524F82A00497D6B /* compiledict.cpp */; };
+		C69479C01524F82A00497D6B /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479991524F82A00497D6B /* debug.cpp */; };
+		C69479C11524F82A00497D6B /* dictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C694799B1524F82A00497D6B /* dictionary.cpp */; };
+		C69479C21524F82A00497D6B /* espeak_command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C694799C1524F82A00497D6B /* espeak_command.cpp */; };
+		C69479C31524F82A00497D6B /* event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C694799E1524F82A00497D6B /* event.cpp */; };
+		C69479C41524F82A00497D6B /* fifo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479A01524F82A00497D6B /* fifo.cpp */; };
+		C69479C51524F82A00497D6B /* intonation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479A21524F82A00497D6B /* intonation.cpp */; };
+		C69479C61524F82A00497D6B /* klatt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479A31524F82A00497D6B /* klatt.cpp */; };
+		C69479C71524F82A00497D6B /* mbrowrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479A51524F82A00497D6B /* mbrowrap.cpp */; };
+		C69479C81524F82A00497D6B /* numbers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479A71524F82A00497D6B /* numbers.cpp */; };
+		C69479C91524F82A00497D6B /* phonemelist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479A91524F82A00497D6B /* phonemelist.cpp */; };
+		C69479CA1524F82A00497D6B /* readclause.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479AA1524F82A00497D6B /* readclause.cpp */; };
+		C69479CB1524F82A00497D6B /* setlengths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479AB1524F82A00497D6B /* setlengths.cpp */; };
+		C69479CC1524F82A00497D6B /* sonic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479AD1524F82A00497D6B /* sonic.cpp */; };
+		C69479CD1524F82A00497D6B /* speak_lib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479AF1524F82A00497D6B /* speak_lib.cpp */; };
+		C69479CE1524F82A00497D6B /* synth_mbrola.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479B31524F82A00497D6B /* synth_mbrola.cpp */; };
+		C69479CF1524F82A00497D6B /* synthdata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479B41524F82A00497D6B /* synthdata.cpp */; };
+		C69479D01524F82A00497D6B /* synthesize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479B51524F82A00497D6B /* synthesize.cpp */; };
+		C69479D11524F82A00497D6B /* tr_languages.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479B71524F82A00497D6B /* tr_languages.cpp */; };
+		C69479D21524F82A00497D6B /* translate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479B81524F82A00497D6B /* translate.cpp */; };
+		C69479D31524F82A00497D6B /* voices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479BB1524F82A00497D6B /* voices.cpp */; };
+		C69479D41524F82A00497D6B /* wave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479BC1524F82A00497D6B /* wave.cpp */; };
+		C69479D51524F82A00497D6B /* wavegen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C69479BE1524F82A00497D6B /* wavegen.cpp */; };
+		C69479D71524FF8500497D6B /* Play-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C69479D61524FF8500497D6B /* Play-icon.png */; };
+		C69479D91525045C00497D6B /* Stop-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C69479D81525045C00497D6B /* Stop-icon.png */; };
+		C69479DA15250B4500497D6B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C694798B1524F24400497D6B /* Icon@2x.png */; };
+		C6947A291525965D00497D6B /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6947A281525965D00497D6B /* MainWindow-iPad.xib */; };
+		C6947A311525A07D00497D6B /* Icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C6947A301525A07D00497D6B /* Icon~ipad.png */; };
+		C6947A331525A0D900497D6B /* Icon~ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6947A321525A0D900497D6B /* Icon~ipad@2x.png */; };
+		C6947A421525C03900497D6B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C606177A106784870090295B /* Default.png */; };
+		C6947A431525C03B00497D6B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6947A2A15259E2900497D6B /* Default@2x.png */; };
+		C6947A441525C15700497D6B /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C6947A381525BF0300497D6B /* Default-Portrait~ipad.png */; };
+		C6947A451525C15900497D6B /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C6947A3E1525BF5D00497D6B /* Default-Landscape~ipad.png */; };
+		C6947A471525C15F00497D6B /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C6947A461525C15F00497D6B /* Default-Portrait@2x~ipad.png */; };
+		C6947A491525C16400497D6B /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C6947A481525C16400497D6B /* Default-Landscape@2x~ipad.png */; };
+		C6947A4C1525CFA700497D6B /* PTeSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = C6947A4B1525CFA700497D6B /* PTeSpeak.m */; };
 		C6B01AC0128BEDEA0025D0A0 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C6B01ABF128BEDEA0025D0A0 /* background.png */; };
 		C6B01E51128D7C3D0025D0A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B01E50128D7C3D0025D0A0 /* MessageUI.framework */; };
 		C6E9FFA6105AAA4B001078EB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E9FFA5105AAA4B001078EB /* Icon.png */; };
@@ -84,6 +120,59 @@
 		C68ADDDD128AA3B2001FFD4C /* ShadowedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowedTableView.h; sourceTree = "<group>"; };
 		C68ADDDE128AA3B2001FFD4C /* ShadowedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowedTableView.m; sourceTree = "<group>"; };
 		C68ADDEC128AA3E9001FFD4C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C694798B1524F24400497D6B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		C69479911524F73F00497D6B /* espeak-data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "espeak-data"; path = "espeak-1.46.14/espeak-data"; sourceTree = "<group>"; };
+		C69479981524F82A00497D6B /* compiledict.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = compiledict.cpp; path = "espeak-1.46.14/src/compiledict.cpp"; sourceTree = "<group>"; };
+		C69479991524F82A00497D6B /* debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = debug.cpp; path = "espeak-1.46.14/src/debug.cpp"; sourceTree = "<group>"; };
+		C694799A1524F82A00497D6B /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = debug.h; path = "espeak-1.46.14/src/debug.h"; sourceTree = "<group>"; };
+		C694799B1524F82A00497D6B /* dictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dictionary.cpp; path = "espeak-1.46.14/src/dictionary.cpp"; sourceTree = "<group>"; };
+		C694799C1524F82A00497D6B /* espeak_command.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = espeak_command.cpp; path = "espeak-1.46.14/src/espeak_command.cpp"; sourceTree = "<group>"; };
+		C694799D1524F82A00497D6B /* espeak_command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = espeak_command.h; path = "espeak-1.46.14/src/espeak_command.h"; sourceTree = "<group>"; };
+		C694799E1524F82A00497D6B /* event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = event.cpp; path = "espeak-1.46.14/src/event.cpp"; sourceTree = "<group>"; };
+		C694799F1524F82A00497D6B /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = event.h; path = "espeak-1.46.14/src/event.h"; sourceTree = "<group>"; };
+		C69479A01524F82A00497D6B /* fifo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fifo.cpp; path = "espeak-1.46.14/src/fifo.cpp"; sourceTree = "<group>"; };
+		C69479A11524F82A00497D6B /* fifo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fifo.h; path = "espeak-1.46.14/src/fifo.h"; sourceTree = "<group>"; };
+		C69479A21524F82A00497D6B /* intonation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = intonation.cpp; path = "espeak-1.46.14/src/intonation.cpp"; sourceTree = "<group>"; };
+		C69479A31524F82A00497D6B /* klatt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = klatt.cpp; path = "espeak-1.46.14/src/klatt.cpp"; sourceTree = "<group>"; };
+		C69479A41524F82A00497D6B /* klatt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = klatt.h; path = "espeak-1.46.14/src/klatt.h"; sourceTree = "<group>"; };
+		C69479A51524F82A00497D6B /* mbrowrap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mbrowrap.cpp; path = "espeak-1.46.14/src/mbrowrap.cpp"; sourceTree = "<group>"; };
+		C69479A61524F82A00497D6B /* mbrowrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mbrowrap.h; path = "espeak-1.46.14/src/mbrowrap.h"; sourceTree = "<group>"; };
+		C69479A71524F82A00497D6B /* numbers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = numbers.cpp; path = "espeak-1.46.14/src/numbers.cpp"; sourceTree = "<group>"; };
+		C69479A81524F82A00497D6B /* phoneme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = phoneme.h; path = "espeak-1.46.14/src/phoneme.h"; sourceTree = "<group>"; };
+		C69479A91524F82A00497D6B /* phonemelist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = phonemelist.cpp; path = "espeak-1.46.14/src/phonemelist.cpp"; sourceTree = "<group>"; };
+		C69479AA1524F82A00497D6B /* readclause.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = readclause.cpp; path = "espeak-1.46.14/src/readclause.cpp"; sourceTree = "<group>"; };
+		C69479AB1524F82A00497D6B /* setlengths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = setlengths.cpp; path = "espeak-1.46.14/src/setlengths.cpp"; sourceTree = "<group>"; };
+		C69479AC1524F82A00497D6B /* sintab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sintab.h; path = "espeak-1.46.14/src/sintab.h"; sourceTree = "<group>"; };
+		C69479AD1524F82A00497D6B /* sonic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sonic.cpp; path = "espeak-1.46.14/src/sonic.cpp"; sourceTree = "<group>"; };
+		C69479AE1524F82A00497D6B /* sonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sonic.h; path = "espeak-1.46.14/src/sonic.h"; sourceTree = "<group>"; };
+		C69479AF1524F82A00497D6B /* speak_lib.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = speak_lib.cpp; path = "espeak-1.46.14/src/speak_lib.cpp"; sourceTree = "<group>"; };
+		C69479B01524F82A00497D6B /* speak_lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = speak_lib.h; path = "espeak-1.46.14/src/speak_lib.h"; sourceTree = "<group>"; };
+		C69479B11524F82A00497D6B /* speech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = speech.h; path = "espeak-1.46.14/src/speech.h"; sourceTree = "<group>"; };
+		C69479B21524F82A00497D6B /* StdAfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StdAfx.h; path = "espeak-1.46.14/src/StdAfx.h"; sourceTree = "<group>"; };
+		C69479B31524F82A00497D6B /* synth_mbrola.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = synth_mbrola.cpp; path = "espeak-1.46.14/src/synth_mbrola.cpp"; sourceTree = "<group>"; };
+		C69479B41524F82A00497D6B /* synthdata.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = synthdata.cpp; path = "espeak-1.46.14/src/synthdata.cpp"; sourceTree = "<group>"; };
+		C69479B51524F82A00497D6B /* synthesize.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = synthesize.cpp; path = "espeak-1.46.14/src/synthesize.cpp"; sourceTree = "<group>"; };
+		C69479B61524F82A00497D6B /* synthesize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = synthesize.h; path = "espeak-1.46.14/src/synthesize.h"; sourceTree = "<group>"; };
+		C69479B71524F82A00497D6B /* tr_languages.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tr_languages.cpp; path = "espeak-1.46.14/src/tr_languages.cpp"; sourceTree = "<group>"; };
+		C69479B81524F82A00497D6B /* translate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = translate.cpp; path = "espeak-1.46.14/src/translate.cpp"; sourceTree = "<group>"; };
+		C69479B91524F82A00497D6B /* translate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = translate.h; path = "espeak-1.46.14/src/translate.h"; sourceTree = "<group>"; };
+		C69479BA1524F82A00497D6B /* voice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = voice.h; path = "espeak-1.46.14/src/voice.h"; sourceTree = "<group>"; };
+		C69479BB1524F82A00497D6B /* voices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = voices.cpp; path = "espeak-1.46.14/src/voices.cpp"; sourceTree = "<group>"; };
+		C69479BC1524F82A00497D6B /* wave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wave.cpp; path = "espeak-1.46.14/src/wave.cpp"; sourceTree = "<group>"; };
+		C69479BD1524F82A00497D6B /* wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wave.h; path = "espeak-1.46.14/src/wave.h"; sourceTree = "<group>"; };
+		C69479BE1524F82A00497D6B /* wavegen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wavegen.cpp; path = "espeak-1.46.14/src/wavegen.cpp"; sourceTree = "<group>"; };
+		C69479D61524FF8500497D6B /* Play-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Play-icon.png"; sourceTree = "<group>"; };
+		C69479D81525045C00497D6B /* Stop-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stop-icon.png"; sourceTree = "<group>"; };
+		C6947A281525965D00497D6B /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		C6947A2A15259E2900497D6B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C6947A301525A07D00497D6B /* Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon~ipad.png"; sourceTree = "<group>"; };
+		C6947A321525A0D900497D6B /* Icon~ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon~ipad@2x.png"; sourceTree = "<group>"; };
+		C6947A381525BF0300497D6B /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		C6947A3E1525BF5D00497D6B /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		C6947A461525C15F00497D6B /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		C6947A481525C16400497D6B /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		C6947A4A1525CFA700497D6B /* PTeSpeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTeSpeak.h; sourceTree = "<group>"; };
+		C6947A4B1525CFA700497D6B /* PTeSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTeSpeak.m; sourceTree = "<group>"; };
 		C6B01ABF128BEDEA0025D0A0 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		C6B01E50128D7C3D0025D0A0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C6E9FFA5105AAA4B001078EB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -157,6 +246,8 @@
 				13B84F140E45C81E0058FDC2 /* BookmarkDetailViewController.m */,
 				C6F38B7C128E8F0400B4535A /* AdViewController.h */,
 				C6F38B7D128E8F0400B4535A /* AdViewController.m */,
+				C6947A4A1525CFA700497D6B /* PTeSpeak.h */,
+				C6947A4B1525CFA700497D6B /* PTeSpeak.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -185,12 +276,15 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C69479931524F77F00497D6B /* espeak */,
+				C69479911524F73F00497D6B /* espeak-data */,
 				C6F38C4F128E948600B4535A /* TouchJSON */,
 				C6F38C46128E947700B4535A /* AdMob */,
 				13B8503D0E461E3E0058FDC2 /* DB */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				C6947A271525965C00497D6B /* iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -209,9 +303,19 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C6B01ABF128BEDEA0025D0A0 /* background.png */,
+				C6947A481525C16400497D6B /* Default-Landscape@2x~ipad.png */,
+				C6947A461525C15F00497D6B /* Default-Portrait@2x~ipad.png */,
+				C6947A3E1525BF5D00497D6B /* Default-Landscape~ipad.png */,
+				C6947A381525BF0300497D6B /* Default-Portrait~ipad.png */,
+				C6947A321525A0D900497D6B /* Icon~ipad@2x.png */,
+				C6947A301525A07D00497D6B /* Icon~ipad.png */,
 				C606177A106784870090295B /* Default.png */,
+				C6947A2A15259E2900497D6B /* Default@2x.png */,
+				C69479D81525045C00497D6B /* Stop-icon.png */,
+				C69479D61524FF8500497D6B /* Play-icon.png */,
+				C6B01ABF128BEDEA0025D0A0 /* background.png */,
 				C6E9FFA5105AAA4B001078EB /* Icon.png */,
+				C694798B1524F24400497D6B /* Icon@2x.png */,
 				131106070E465B9C00ADB761 /* ilingoka.sqlite */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -239,6 +343,60 @@
 				C6F38BC5128E92CE00B4535A /* MessageUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C69479931524F77F00497D6B /* espeak */ = {
+			isa = PBXGroup;
+			children = (
+				C69479981524F82A00497D6B /* compiledict.cpp */,
+				C69479991524F82A00497D6B /* debug.cpp */,
+				C694799A1524F82A00497D6B /* debug.h */,
+				C694799B1524F82A00497D6B /* dictionary.cpp */,
+				C694799C1524F82A00497D6B /* espeak_command.cpp */,
+				C694799D1524F82A00497D6B /* espeak_command.h */,
+				C694799E1524F82A00497D6B /* event.cpp */,
+				C694799F1524F82A00497D6B /* event.h */,
+				C69479A01524F82A00497D6B /* fifo.cpp */,
+				C69479A11524F82A00497D6B /* fifo.h */,
+				C69479A21524F82A00497D6B /* intonation.cpp */,
+				C69479A31524F82A00497D6B /* klatt.cpp */,
+				C69479A41524F82A00497D6B /* klatt.h */,
+				C69479A51524F82A00497D6B /* mbrowrap.cpp */,
+				C69479A61524F82A00497D6B /* mbrowrap.h */,
+				C69479A71524F82A00497D6B /* numbers.cpp */,
+				C69479A81524F82A00497D6B /* phoneme.h */,
+				C69479A91524F82A00497D6B /* phonemelist.cpp */,
+				C69479AA1524F82A00497D6B /* readclause.cpp */,
+				C69479AB1524F82A00497D6B /* setlengths.cpp */,
+				C69479AC1524F82A00497D6B /* sintab.h */,
+				C69479AD1524F82A00497D6B /* sonic.cpp */,
+				C69479AE1524F82A00497D6B /* sonic.h */,
+				C69479AF1524F82A00497D6B /* speak_lib.cpp */,
+				C69479B01524F82A00497D6B /* speak_lib.h */,
+				C69479B11524F82A00497D6B /* speech.h */,
+				C69479B21524F82A00497D6B /* StdAfx.h */,
+				C69479B31524F82A00497D6B /* synth_mbrola.cpp */,
+				C69479B41524F82A00497D6B /* synthdata.cpp */,
+				C69479B51524F82A00497D6B /* synthesize.cpp */,
+				C69479B61524F82A00497D6B /* synthesize.h */,
+				C69479B71524F82A00497D6B /* tr_languages.cpp */,
+				C69479B81524F82A00497D6B /* translate.cpp */,
+				C69479B91524F82A00497D6B /* translate.h */,
+				C69479BA1524F82A00497D6B /* voice.h */,
+				C69479BB1524F82A00497D6B /* voices.cpp */,
+				C69479BC1524F82A00497D6B /* wave.cpp */,
+				C69479BD1524F82A00497D6B /* wave.h */,
+				C69479BE1524F82A00497D6B /* wavegen.cpp */,
+			);
+			name = espeak;
+			sourceTree = "<group>";
+		};
+		C6947A271525965C00497D6B /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				C6947A281525965D00497D6B /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		C6F38C46128E947700B4535A /* AdMob */ = {
@@ -321,8 +479,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "LinGEO" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -353,9 +514,21 @@
 				13B84F770E45CCFE0058FDC2 /* BookmarkDetailView.xib in Resources */,
 				131106080E465B9C00ADB761 /* ilingoka.sqlite in Resources */,
 				C6E9FFA6105AAA4B001078EB /* Icon.png in Resources */,
-				C606177B106784870090295B /* Default.png in Resources */,
 				C6B01AC0128BEDEA0025D0A0 /* background.png in Resources */,
 				C6538938128DA68C00C8FC07 /* Entitlements.plist in Resources */,
+				C69479921524F73F00497D6B /* espeak-data in Resources */,
+				C69479D71524FF8500497D6B /* Play-icon.png in Resources */,
+				C69479D91525045C00497D6B /* Stop-icon.png in Resources */,
+				C69479DA15250B4500497D6B /* Icon@2x.png in Resources */,
+				C6947A291525965D00497D6B /* MainWindow-iPad.xib in Resources */,
+				C6947A311525A07D00497D6B /* Icon~ipad.png in Resources */,
+				C6947A331525A0D900497D6B /* Icon~ipad@2x.png in Resources */,
+				C6947A421525C03900497D6B /* Default.png in Resources */,
+				C6947A431525C03B00497D6B /* Default@2x.png in Resources */,
+				C6947A441525C15700497D6B /* Default-Portrait~ipad.png in Resources */,
+				C6947A451525C15900497D6B /* Default-Landscape~ipad.png in Resources */,
+				C6947A471525C15F00497D6B /* Default-Portrait@2x~ipad.png in Resources */,
+				C6947A491525C16400497D6B /* Default-Landscape@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +559,30 @@
 				C6F38C6D128E948600B4535A /* CJSONScanner.m in Sources */,
 				C6F38C6E128E948600B4535A /* CJSONSerializer.m in Sources */,
 				C6F38C6F128E948600B4535A /* CSerializedJSONData.m in Sources */,
+				C69479BF1524F82A00497D6B /* compiledict.cpp in Sources */,
+				C69479C01524F82A00497D6B /* debug.cpp in Sources */,
+				C69479C11524F82A00497D6B /* dictionary.cpp in Sources */,
+				C69479C21524F82A00497D6B /* espeak_command.cpp in Sources */,
+				C69479C31524F82A00497D6B /* event.cpp in Sources */,
+				C69479C41524F82A00497D6B /* fifo.cpp in Sources */,
+				C69479C51524F82A00497D6B /* intonation.cpp in Sources */,
+				C69479C61524F82A00497D6B /* klatt.cpp in Sources */,
+				C69479C71524F82A00497D6B /* mbrowrap.cpp in Sources */,
+				C69479C81524F82A00497D6B /* numbers.cpp in Sources */,
+				C69479C91524F82A00497D6B /* phonemelist.cpp in Sources */,
+				C69479CA1524F82A00497D6B /* readclause.cpp in Sources */,
+				C69479CB1524F82A00497D6B /* setlengths.cpp in Sources */,
+				C69479CC1524F82A00497D6B /* sonic.cpp in Sources */,
+				C69479CD1524F82A00497D6B /* speak_lib.cpp in Sources */,
+				C69479CE1524F82A00497D6B /* synth_mbrola.cpp in Sources */,
+				C69479CF1524F82A00497D6B /* synthdata.cpp in Sources */,
+				C69479D01524F82A00497D6B /* synthesize.cpp in Sources */,
+				C69479D11524F82A00497D6B /* tr_languages.cpp in Sources */,
+				C69479D21524F82A00497D6B /* translate.cpp in Sources */,
+				C69479D31524F82A00497D6B /* voices.cpp in Sources */,
+				C69479D41524F82A00497D6B /* wave.cpp in Sources */,
+				C69479D51524F82A00497D6B /* wavegen.cpp in Sources */,
+				C6947A4C1525CFA700497D6B /* PTeSpeak.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,8 +593,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				CODE_SIGN_ENTITLEMENTS = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lasha Dolidze (K49Y2SHJZG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -410,8 +611,9 @@
 					"\"$(SRCROOT)/AdMob\"",
 				);
 				PRODUCT_NAME = LinGEO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5CF2D47F-F20D-4A06-8FED-485F84020F9A";
-				SDKROOT = iphoneos4.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -419,8 +621,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				CODE_SIGN_ENTITLEMENTS = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lasha Dolidze (K49Y2SHJZG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LinGEO_Prefix.pch;
@@ -431,8 +637,9 @@
 					"\"$(SRCROOT)/AdMob\"",
 				);
 				PRODUCT_NAME = LinGEO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5CF2D47F-F20D-4A06-8FED-485F84020F9A";
-				SDKROOT = iphoneos4.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -446,7 +653,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PREBINDING = NO;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphonesimulator3.1.3;
 			};
@@ -462,7 +668,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PREBINDING = NO;
 				PRODUCT_NAME = LinGEO;
 				SDKROOT = iphonesimulator3.1.3;
 			};
@@ -478,7 +683,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PREBINDING = NO;
 				PRODUCT_NAME = LinGEO;
 				SDKROOT = iphonesimulator3.1.3;
 			};
@@ -488,8 +692,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					armv6,
+				);
 				CODE_SIGN_ENTITLEMENTS = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LinGEO_Prefix.pch;
@@ -500,8 +708,9 @@
 					"\"$(SRCROOT)/AdMob\"",
 				);
 				PRODUCT_NAME = LinGEO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4D95D58D-0C7C-4767-9EFE-D64E871A2995";
-				SDKROOT = iphoneos4.1;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Distribution;
 		};

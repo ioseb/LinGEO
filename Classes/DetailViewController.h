@@ -9,13 +9,16 @@
 #import "ShadowedTableView.h"
 #import "EngGeo.h"
 #import "AdViewController.h"
+#import "PTeSpeak.h"
 
-@interface DetailViewController : UIViewController {
+@interface DetailViewController : UIViewController <UIWebViewDelegate, PTeSpeakDelegate> {
     
     AdViewController  *adViewController;
     
     IBOutlet UIWebView  *webView;
 	EngGeo *trn;
+    
+    NSInteger selectedWord;
     
 }
 

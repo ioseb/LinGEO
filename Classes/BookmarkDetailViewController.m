@@ -7,6 +7,7 @@
 #import "BookmarkViewController.h"
 
 
+
 @implementation BookmarkDetailViewController
 
 @synthesize webView, bookmark;
@@ -26,7 +27,7 @@
     [string appendFormat:@"<html>"
      "<style>"
      "body {"
-     "margin: 10 10 20 10;"
+     "margin: 10 40 20 40;"
      "}"
      "#word {"
      "font-family: Georgia;"
@@ -42,20 +43,17 @@
      "font-size: 60px;"
      "font-weight: bold;"
      "}"
-     ".s4 {"
-    // "background-color: #3D1600;"
-    // "color: #C0C0C0;"
-     "text-align: center;"
-     "padding: 5 5 5 5;"
-     "}"
-     ".s5 {"
-     "padding: 10 10 10 40;"
+     ".s7 {"
+     "border-bottom: 1px solid #c0c0c0;"
      "}"
      "i {"
      "color: #72c53e;"
      "}"
      "</style>"
-     "<body bgcolor='#FFF3E0'>"];
+     "<body bgcolor='#FFF3E0'>" ];
+    // "<div id='word'>%@</div>"
+    // "<div id='transcript'>&nbsp;%@</div>", [trn eng], [trn transcription]];
+    
      
     // [string appendFormat:@"<div class='s3 s4'>Added - %@</div>", [bookmark date]];
      [string appendString:@"<div class='s5'>"];
@@ -63,8 +61,12 @@
      "<div id='transcript'>&nbsp;%@</div>", [bookmark eng], [bookmark transcription] ];
     
     for(int i = 0; i < [bookmark.types count]; i++) {
+        //[string appendFormat:@"<div class='s3'>%d.&nbsp;<i>%@</i></div>", i + 1, [[bookmark.types objectAtIndex:i] lowercaseString]];
+        //[string appendFormat:@"<div class='s3'>&nbsp;&nbsp;&nbsp;&nbsp;%@</div>", [bookmark.geoArray objectAtIndex:i]];
+
         [string appendFormat:@"<div class='s3'>%d.&nbsp;<i>%@</i></div>", i + 1, [[bookmark.types objectAtIndex:i] lowercaseString]];
-        [string appendFormat:@"<div class='s3'>&nbsp;&nbsp;&nbsp;&nbsp;%@</div>", [bookmark.geoArray objectAtIndex:i]];
+        [string appendFormat:@"<div class='s3'>&nbsp;&nbsp;&nbsp;&nbsp;%@</div>"
+         "<div class='s7'><a href='callback:%d'><img id=\"mplayer%d\" src=\"Play-icon.png\" /></a></div>", [bookmark.geoArray objectAtIndex:i], i, i];
     }
     
     [string appendString:@"</div>"];
@@ -73,6 +75,50 @@
     return string;
 }
 
+
+-(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+    
+    if ( [[[inRequest URL] scheme] isEqualToString:@"callback"] ) {
+        
+        if([[PTeSpeak sharedPTeSpeak] isSpeak]) {
+            [[PTeSpeak sharedPTeSpeak] stop];
+            return NO;
+        }
+        
+        NSString *indexStr = [[[inRequest URL] absoluteString ] substringFromIndex:[[[inRequest URL] scheme] length] + 1];
+        
+        int inx = [indexStr intValue];
+        
+        if(inx > -1) {
+            
+            selectedWord = inx;
+            [[PTeSpeak sharedPTeSpeak] speak:[bookmark.geoArray objectAtIndex:inx]];
+        }
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)speakDidStart:(PTeSpeak *)espeak
+{
+    [self.webView stringByEvaluatingJavaScriptFromString:
+     [NSString stringWithFormat:@"var mid = document.getElementById(\"mplayer%d\");"    
+      "mid.src = \"Stop-icon.png\";", selectedWord]];
+}
+
+- (void)speakDidEnd:(PTeSpeak *)espeak
+{
+    [self.webView stringByEvaluatingJavaScriptFromString:
+     [NSString stringWithFormat:@"var mid = document.getElementById(\"mplayer%d\");"    
+      "mid.src = \"Play-icon.png\";", selectedWord]];
+}
+
+- (void)speakWithError:(PTeSpeak *)espeak error:(OSStatus)error
+{
+    [self.webView stringByEvaluatingJavaScriptFromString:@"alert('Unable to create Audio queue')"];
+}
 
 
 //If you need to do additional setup after loading the view, override viewDidLoad.
@@ -86,6 +132,9 @@
     
     self.navigationItem.rightBarButtonItem = action;
     
+    [[PTeSpeak sharedPTeSpeak] setDelegate:self];
+    [[PTeSpeak sharedPTeSpeak] setupWithVoice:@"ka" volume:100 rate:150 pitch:40];
+    
     // to make html content transparent to its parent view -
 	// 1) set the webview's backgroundColor property to [UIColor clearColor]
 	// 2) use the content in the html: <body style="background-color: transparent">
@@ -93,9 +142,13 @@
 	//
 	webView.opaque = NO;
 	webView.backgroundColor = [UIColor clearColor];
+    webView.delegate = self;
+    
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSURL *baseURL = [NSURL fileURLWithPath:path];
     
     NSMutableString *output = [self generateHTMLoutput];
-    [webView loadHTMLString:output baseURL:nil];
+    [webView loadHTMLString:output baseURL:baseURL];
     [output release];
     
     
@@ -108,6 +161,13 @@
     
 }
 
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [[PTeSpeak sharedPTeSpeak] stop];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

@@ -10,13 +10,16 @@
 #import <MessageUI/MFMailComposeViewController.h>
 
 #import "AdViewController.h"
+#import "PTeSpeak.h"
 
-@interface BookmarkDetailViewController : UIViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
+@interface BookmarkDetailViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
 	Bookmark *bookmark;
     
     IBOutlet UIWebView  *webView;
     
     AdViewController  *adViewController;
+    
+    NSInteger          selectedWord;
 }
 
 @property (nonatomic, retain) UIWebView *webView;

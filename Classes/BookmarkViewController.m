@@ -115,9 +115,9 @@
 
 @end
 
+SortedBookmarks *sortedBookmarks;
 
 @interface BookmarkViewController()
-SortedBookmarks *sortedBookmarks;
 @end
 
 
