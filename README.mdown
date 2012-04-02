@@ -22,3 +22,5 @@ Features
 
 
 In 1.2 version added georgian pronunciation which uses eSpeak speech synthesizer [engine](https://github.com/lashad/PTeSpeak).
+
+Available on AppStore [LinGEO](http://itunes.apple.com/us/app/lingeo/id331555944?mt=8)
