@@ -21,6 +21,7 @@ Features
 - iPad support 
 
 
-In 1.2 version added georgian pronunciation which uses eSpeak speech synthesizer [engine](https://github.com/lashad/PTeSpeak).
+In version 1.2 added georgian pronunciation which uses [eSpeak](http://espeak.sourceforge.net/) speech synthesizer engine.
+To integrate eSpeak engine in iOS or Mac OSX, please refer [PTeSpeak](https://github.com/lashad/PTeSpeak) Cocoa class.
 
-Available on AppStore [LinGEO](http://itunes.apple.com/us/app/lingeo/id331555944?mt=8)
+LinGEO also available on AppStore [LinGEO](http://itunes.apple.com/us/app/lingeo/id331555944?mt=8)
