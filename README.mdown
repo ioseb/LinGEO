@@ -1,0 +1,22 @@
+
+LinGEO is the easy English to Georgian translator. 
+Database holds 60632 english words with accurate Georgian translations. 
+
+LinGEO offers easy search functionality just type the symbol and matched words will be shown immediately. 
+Application offers detailed view of the search words with transcription and all possible Georgian translations. 
+
+Words of interest can be bookmarked and reviewed later. Bookmarked words are grouped in alphabetical order that greatly simplifies navigation and management. 
+Bookmarks can be removed later from bookmarks view or bookmark detail view. 
+
+LinGEO is great not only for native speaking Georgians who are interested improving their English knowledge but it can be very helpful for non Georgian speakers who are interested in Georgian language. 
+
+Features 
+* One touch keyboard 
+* Bookmarking
+
+- iOS 4.0 support - multitasking 
+- Email bookmarks 
+- New look and feel 
+- Add georgian pronunciation 
+- iPad support 
+
