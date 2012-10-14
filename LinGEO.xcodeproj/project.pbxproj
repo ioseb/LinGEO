@@ -67,13 +67,11 @@
 		C6947A4C1525CFA700497D6B /* PTeSpeak.m in Sources */ = {isa = PBXBuildFile; fileRef = C6947A4B1525CFA700497D6B /* PTeSpeak.m */; };
 		C6B01AC0128BEDEA0025D0A0 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C6B01ABF128BEDEA0025D0A0 /* background.png */; };
 		C6B01E51128D7C3D0025D0A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6B01E50128D7C3D0025D0A0 /* MessageUI.framework */; };
+		C6C991F5162A931100B642BE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6C991F4162A931100B642BE /* Default-568h@2x.png */; };
 		C6E9FFA6105AAA4B001078EB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E9FFA5105AAA4B001078EB /* Icon.png */; };
-		C6F38AC2128E84E100B4535A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F38AC1128E84E100B4535A /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		C6F38B7E128E8F0400B4535A /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38B7D128E8F0400B4535A /* AdViewController.m */; };
 		C6F38BC0128E92B400B4535A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F38BBF128E92B400B4535A /* AudioToolbox.framework */; };
 		C6F38BC3128E92C300B4535A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F38BC2128E92C300B4535A /* MediaPlayer.framework */; };
 		C6F38BC6128E92CE00B4535A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F38BC5128E92CE00B4535A /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		C6F38C4C128E947700B4535A /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F38C4B128E947700B4535A /* libAdMob.a */; };
 		C6F38C66128E948600B4535A /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C51128E948600B4535A /* CDataScanner.m */; };
 		C6F38C67128E948600B4535A /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C54128E948600B4535A /* CDataScanner_Extensions.m */; };
 		C6F38C68128E948600B4535A /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F38C56128E948600B4535A /* NSCharacterSet_Extensions.m */; };
@@ -175,18 +173,11 @@
 		C6947A4B1525CFA700497D6B /* PTeSpeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTeSpeak.m; sourceTree = "<group>"; };
 		C6B01ABF128BEDEA0025D0A0 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		C6B01E50128D7C3D0025D0A0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C6C991F4162A931100B642BE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C6E9FFA5105AAA4B001078EB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		C6F38AC1128E84E100B4535A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = iphonesimulator3.1.3/System/Library/Frameworks/iAd.framework; sourceTree = "<group>"; };
-		C6F38B7C128E8F0400B4535A /* AdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdViewController.h; sourceTree = "<group>"; };
-		C6F38B7D128E8F0400B4535A /* AdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdViewController.m; sourceTree = "<group>"; };
 		C6F38BBF128E92B400B4535A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C6F38BC2128E92C300B4535A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C6F38BC5128E92CE00B4535A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		C6F38C47128E947700B4535A /* AdMobDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobDelegateProtocol.h; sourceTree = "<group>"; };
-		C6F38C48128E947700B4535A /* AdMobInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobInterstitialAd.h; sourceTree = "<group>"; };
-		C6F38C49128E947700B4535A /* AdMobInterstitialDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobInterstitialDelegateProtocol.h; sourceTree = "<group>"; };
-		C6F38C4A128E947700B4535A /* AdMobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobView.h; sourceTree = "<group>"; };
-		C6F38C4B128E947700B4535A /* libAdMob.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdMob.a; sourceTree = "<group>"; };
 		C6F38C50128E948600B4535A /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
 		C6F38C51128E948600B4535A /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
 		C6F38C53128E948600B4535A /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
@@ -220,11 +211,9 @@
 				13B850510E461FA80058FDC2 /* libsqlite3.dylib in Frameworks */,
 				C68ADDED128AA3E9001FFD4C /* QuartzCore.framework in Frameworks */,
 				C6B01E51128D7C3D0025D0A0 /* MessageUI.framework in Frameworks */,
-				C6F38AC2128E84E100B4535A /* iAd.framework in Frameworks */,
 				C6F38BC0128E92B400B4535A /* AudioToolbox.framework in Frameworks */,
 				C6F38BC3128E92C300B4535A /* MediaPlayer.framework in Frameworks */,
 				C6F38BC6128E92CE00B4535A /* MessageUI.framework in Frameworks */,
-				C6F38C4C128E947700B4535A /* libAdMob.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,8 +233,6 @@
 				139F57BA0E450A23009EA047 /* BookmarkViewController.m */,
 				13B84F130E45C81E0058FDC2 /* BookmarkDetailViewController.h */,
 				13B84F140E45C81E0058FDC2 /* BookmarkDetailViewController.m */,
-				C6F38B7C128E8F0400B4535A /* AdViewController.h */,
-				C6F38B7D128E8F0400B4535A /* AdViewController.m */,
 				C6947A4A1525CFA700497D6B /* PTeSpeak.h */,
 				C6947A4B1525CFA700497D6B /* PTeSpeak.m */,
 			);
@@ -279,7 +266,6 @@
 				C69479931524F77F00497D6B /* espeak */,
 				C69479911524F73F00497D6B /* espeak-data */,
 				C6F38C4F128E948600B4535A /* TouchJSON */,
-				C6F38C46128E947700B4535A /* AdMob */,
 				13B8503D0E461E3E0058FDC2 /* DB */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -303,6 +289,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C6C991F4162A931100B642BE /* Default-568h@2x.png */,
 				C6947A481525C16400497D6B /* Default-Landscape@2x~ipad.png */,
 				C6947A461525C15F00497D6B /* Default-Portrait@2x~ipad.png */,
 				C6947A3E1525BF5D00497D6B /* Default-Landscape~ipad.png */,
@@ -331,7 +318,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C6F38AC1128E84E100B4535A /* iAd.framework */,
 				C68ADDEC128AA3E9001FFD4C /* QuartzCore.framework */,
 				C6B01E50128D7C3D0025D0A0 /* MessageUI.framework */,
 				13B850500E461FA80058FDC2 /* libsqlite3.dylib */,
@@ -397,18 +383,6 @@
 				C6947A281525965D00497D6B /* MainWindow-iPad.xib */,
 			);
 			name = iPad;
-			sourceTree = "<group>";
-		};
-		C6F38C46128E947700B4535A /* AdMob */ = {
-			isa = PBXGroup;
-			children = (
-				C6F38C47128E947700B4535A /* AdMobDelegateProtocol.h */,
-				C6F38C48128E947700B4535A /* AdMobInterstitialAd.h */,
-				C6F38C49128E947700B4535A /* AdMobInterstitialDelegateProtocol.h */,
-				C6F38C4A128E947700B4535A /* AdMobView.h */,
-				C6F38C4B128E947700B4535A /* libAdMob.a */,
-			);
-			path = AdMob;
 			sourceTree = "<group>";
 		};
 		C6F38C4F128E948600B4535A /* TouchJSON */ = {
@@ -529,6 +503,7 @@
 				C6947A451525C15900497D6B /* Default-Landscape~ipad.png in Resources */,
 				C6947A471525C15F00497D6B /* Default-Portrait@2x~ipad.png in Resources */,
 				C6947A491525C16400497D6B /* Default-Landscape@2x~ipad.png in Resources */,
+				C6C991F5162A931100B642BE /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +523,6 @@
 				13B84F150E45C81E0058FDC2 /* BookmarkDetailViewController.m in Sources */,
 				131106200E46676500ADB761 /* Bookmark.m in Sources */,
 				C68ADDDF128AA3B2001FFD4C /* ShadowedTableView.m in Sources */,
-				C6F38B7E128E8F0400B4535A /* AdViewController.m in Sources */,
 				C6F38C66128E948600B4535A /* CDataScanner.m in Sources */,
 				C6F38C67128E948600B4535A /* CDataScanner_Extensions.m in Sources */,
 				C6F38C68128E948600B4535A /* NSCharacterSet_Extensions.m in Sources */,
@@ -598,22 +572,23 @@
 					armv6,
 				);
 				CODE_SIGN_ENTITLEMENTS = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
 				COPY_PHASE_STRIP = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LinGEO_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 				);
 				PRODUCT_NAME = LinGEO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC74C7A6-C8B5-4EA5-96F1-876FB9A850A8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -626,42 +601,53 @@
 					armv6,
 				);
 				CODE_SIGN_ENTITLEMENTS = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LinGEO_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 				);
 				PRODUCT_NAME = LinGEO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC74C7A6-C8B5-4EA5-96F1-876FB9A850A8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lasha Dolidze (K49Y2SHJZG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "E18DD1D0-2C75-4CFE-9FBE-AE34738B538C";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
-				SDKROOT = iphonesimulator3.1.3;
+				SDKROOT = iphoneos6.0;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lasha Dolidze";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -669,14 +655,20 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = LinGEO;
-				SDKROOT = iphonesimulator3.1.3;
+				PROVISIONING_PROFILE = "CC74C7A6-C8B5-4EA5-96F1-876FB9A850A8";
+				SDKROOT = iphoneos6.0;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
 		C64F7DC1105E638300A4DFEE /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lasha Dolidze";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -684,7 +676,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = LinGEO;
-				SDKROOT = iphonesimulator3.1.3;
+				PROVISIONING_PROFILE = "CC74C7A6-C8B5-4EA5-96F1-876FB9A850A8";
+				SDKROOT = iphoneos6.0;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Distribution;
 		};
@@ -697,20 +691,21 @@
 					armv6,
 				);
 				CODE_SIGN_ENTITLEMENTS = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lasha Dolidze";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LinGEO_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AdMob\"",
 				);
 				PRODUCT_NAME = LinGEO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CC74C7A6-C8B5-4EA5-96F1-876FB9A850A8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Distribution;
 		};

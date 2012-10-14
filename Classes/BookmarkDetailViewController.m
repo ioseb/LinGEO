@@ -11,7 +11,6 @@
 @implementation BookmarkDetailViewController
 
 @synthesize webView, bookmark;
-@synthesize adViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -152,13 +151,6 @@
     [output release];
     
     
-    self.adViewController = [[AdViewController alloc] initWithController:self]; 
-    
-    // If the banner wasn't included in the nib, create one.
-    [adViewController createADBannerView];
-    
-    [adViewController layoutForCurrentOrientation:NO];
-    
 }
 
 
@@ -172,7 +164,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [adViewController layoutForCurrentOrientation:NO];  
 }
 
 
@@ -257,11 +248,6 @@
     return YES;
 }
 
--(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [adViewController layoutForCurrentOrientation:YES];
-}
-
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
 	NSLog(@"Memory Warning in BookmarkDetailView");
@@ -269,7 +255,6 @@
 
 
 - (void)dealloc {
-    [adViewController release];
 	[webView release];
 	[bookmark release];
 	[super dealloc];

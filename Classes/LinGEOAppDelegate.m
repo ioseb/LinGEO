@@ -246,7 +246,7 @@ static NSDictionary *map = nil;
 			ret = YES;
 		}
 	} else {
-		NSLog(@"SQLite Statement Prepare Error: ", sqlite3_errmsg(databaseBookmark));
+		NSLog(@"SQLite Statement Prepare Error: %s", sqlite3_errmsg(databaseBookmark));
 	}
 	
 	sqlite3_finalize(statement);

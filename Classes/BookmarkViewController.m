@@ -124,7 +124,6 @@ SortedBookmarks *sortedBookmarks;
 @implementation BookmarkViewController
 
 @synthesize aTableView;
-@synthesize adViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -143,12 +142,6 @@ SortedBookmarks *sortedBookmarks;
 
     self.navigationItem.rightBarButtonItem = action;
     
-    self.adViewController = [[AdViewController alloc] initWithController:self]; 
-    
-    // If the banner wasn't included in the nib, create one.
-    [adViewController createADBannerView];
-    
-    [adViewController layoutForCurrentOrientation:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -162,8 +155,6 @@ SortedBookmarks *sortedBookmarks;
     [self updateBarButtons];
     
 	[aTableView reloadData];
-    
-    [adViewController layoutForCurrentOrientation:NO];  
 }
 
 
@@ -358,10 +349,6 @@ SortedBookmarks *sortedBookmarks;
     return (interfaceOrientation == UIInterfaceOrientationPortrait) || (interfaceOrientation == UIInterfaceOrientationLandscapeRight) || (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
--(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [adViewController layoutForCurrentOrientation:YES];
-}
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
@@ -370,7 +357,6 @@ SortedBookmarks *sortedBookmarks;
 
 
 - (void)dealloc {
-    [adViewController release];
 	[aTableView release];
 	[sortedBookmarks release];
 	[super dealloc];

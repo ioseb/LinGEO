@@ -16,7 +16,6 @@
 @implementation DetailViewController
 
 @synthesize webView, trn;
-@synthesize adViewController;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -128,12 +127,6 @@
 		self.navigationItem.rightBarButtonItem.enabled = NO;
 	}
 
-    self.adViewController = [[AdViewController alloc] initWithController:self]; 
-    
-    // If the banner wasn't included in the nib, create one.
-    [adViewController createADBannerView];
-    
-    [adViewController layoutForCurrentOrientation:NO];
     
     //PTeSpeak *espeak = [PTeSpeak sharedPTeSpeak];
 
@@ -182,10 +175,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait) || (interfaceOrientation == UIInterfaceOrientationLandscapeRight) || (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
--(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [adViewController layoutForCurrentOrientation:YES];
-}
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
@@ -195,12 +184,9 @@
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	self.title = @"Details";
-
-    [adViewController layoutForCurrentOrientation:NO];    
 }
 
 - (void)dealloc {
-    [adViewController release];
 	[webView release];
 	[trn release];
 	[super dealloc];
